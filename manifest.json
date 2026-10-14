@@ -1,0 +1,27 @@
+{
+  "name": "دار الأثاث - الجزائر 58 ولاية",
+  "short_name": "دار الأثاث",
+  "description": "أكبر منصة أثاث في الجزائر - 58 ولاية - بيع وشراء مباشر مع المحلات",
+  "start_url": "/dar-al-athath/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b8935f",
+  "orientation": "any",
+  "scope": "/dar-al-athath/",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2219/2219873.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2219/2219873.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

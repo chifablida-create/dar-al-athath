@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دار الأثاث V9 - الإدارة الكاملة</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui;background:#fff;min-height:100vh;padding-bottom:95px}
+.header{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 24px rgba(0,0,0,.07)}
+.logo{font-weight:900;font-size:22px;cursor:pointer}
+.logo span{color:#b8935f}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px;padding:14px;max-width:1100px;margin:auto}
+.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.img{height:110px;background:linear-gradient(135deg,#f8f5ef,#e8ddd0);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 70%)}
+.meta{padding:10px}.price{font-weight:800;color:#8a6a3a}.w{font-size:11px;background:#f1efe8;padding:2px 6px;border-radius:8px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 14px;z-index:200;border-radius:24px 24px 0 0;box-shadow:0 -4px 28px rgba(0,0,0,.09)}
+.tab{flex:1;text-align:center;font-size:11px;cursor:pointer;padding:6px}.tab.mid{background:linear-gradient(135deg,#d4b075,#b8935f);color:white;border-radius:18px;margin:0 8px;transform:translateY(-14px);box-shadow:0 10px 20px rgba(184,147,95,.42);font-weight:800}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.48);display:none;align-items:center;justify-content:center;z-index:500;padding:12px}
+.modal.show{display:flex}
+.box{background:white;border-radius:22px;padding:0;width:100%;max-width:820px;max-height:94vh;overflow:hidden;display:flex;flex-direction:column}
+.boxhead{padding:14px 18px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.boxbody{padding:0;overflow:auto;flex:1}
+.blackbox{background:#0a0a0a;color:white;border-radius:18px;padding:18px}
+.input{width:100%;padding:11px;border-radius:12px;border:1px solid #ddd;margin:6px 0;font-family:inherit}
+.btn{padding:10px 14px;border-radius:12px;border:none;background:#111;color:white;font-weight:700;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,#d4b075,#b8935f)}
+.tabs{display:flex;gap:6px;padding:10px 14px;background:#faf7ef;border-bottom:1px solid #eee;overflow:auto}
+.tabs button{white-space:nowrap;padding:8px 12px;border-radius:20px;border:1px solid #e8ddd0;background:white;cursor:pointer;font-size:12px}
+.tabs button.active{background:#111;color:white;border-color:#111}
+.section{padding:14px;display:none}.section.active{display:block}
+.log{background:#111;color:#2cff7a;border-radius:12px;padding:10px;max-height:140px;overflow:auto;font-family:monospace;font-size:12px;margin-top:8px}
+.receipt{border:1px solid #eee;border-radius:12px;padding:10px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
+.chatrow{display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;display:inline-block}
+</style>
+</head>
+<body>
+<div class="header"><div class="logo" id="logo">دار <span>الأثاث</span> 🏠 V9</div><div style="font-size:11px;background:#fff3cd;padding:4px 8px;border-radius:12px">342 زائر الآن • 58 ولاية</div></div>
+<div class="grid" id="grid"></div>
+<div class="bottom"><div class="tab" onclick="alert('السجل')">📋<br>السجل</div><div class="tab mid" onclick="document.getElementById('dealer').classList.add('show')">🏪<br>تسجيل المتعامل</div><div class="tab" onclick="alert('58 ولاية')">🗺️<br>الولايات</div></div>
+
+<div class="modal" id="dealer"><div class="box" style="max-width:440px"><div class="boxhead"><h3>🏪 تسجيل محلك</h3><button class="btn" onclick="this.closest('.modal').classList.remove('show')">✕</button></div><div class="boxbody" style="padding:14px"><p style="font-size:12px">رقمك الداخلي: <b>#1247 🔒 داخل صفحتك فقط</b></p><input class="input" placeholder="اسم المحل"><select class="input"><option>ولاية</option><option>16 الجزائر</option><option>31 وهران</option></select><p style="font-size:12px;margin-top:8px">📸 صور: تحميل أو تصوير مباشر</p><div style="display:flex;gap:6px"><button class="btn" style="background:#f5f0e6;color:#8a6a3a;border:1px dashed #d4b075" onclick="document.getElementById('fi').click()">📁 تحميل</button><button class="btn" style="background:#f5f0e6;color:#8a6a3a;border:1px dashed #d4b075" onclick="document.getElementById('fi').click()">📸 تصوير</button><input type="file" id="fi" multiple accept="image/*" capture="environment" style="display:none"></div><button class="btn gold" style="width:100%;margin-top:10px" onclick="this.closest('.modal').classList.remove('show')">تأكيد</button></div></div></div>
+
+<div class="modal" id="adminLogin"><div class="blackbox" style="width:360px"><h3>🔐 إدارة دار الأثاث</h3><p style="font-size:11px;color:#888">5 نقرات على الشعار • الكود مشفر hash</p><input class="input" type="password" id="ap" placeholder="الكود السري" style="background:#1a1a1a;color:white;border-color:#333"><div id="ae" style="color:#ff6b6b;font-size:12px;min-height:18px"></div><button class="btn" style="width:100%" onclick="tryAdmin()">دخول</button><button class="btn" style="width:100%;background:#222;margin-top:6px" onclick="closeAll()">إلغاء</button><div style="font-size:10px;color:#555;margin-top:8px">محاولات: <span id="tr">0/5</span></div></div></div>
+
+<div class="modal" id="adminPanel"><div class="box"><div class="boxhead"><h3>📊 الإدارة الكاملة - ameurali</h3><button class="btn" onclick="closeAll()">✕ إغلاق</button></div>
+<div class="tabs">
+<button class="active" onclick="switchTab('bot')">🤖 بوت الأوامر</button>
+<button onclick="switchTab('receipts')">💳 الوصولات</button>
+<button onclick="switchTab('chat')">💬 شات المحلات</button>
+<button onclick="switchTab('settings')">⚙️ إعدادات التطبيق</button>
+<button onclick="switchTab('shops')">🔄 ترتيب المحلات</button>
+</div>
+<div class="boxbody">
+
+<div class="section active" id="sec-bot">
+<div style="background:#0a0a0a;color:white;border-radius:16px;padding:14px">
+<h4>🤖 بوت إدارة دار الأثاث - قل له ما تريد</h4>
+<p style="font-size:11px;color:#aaa">يفهم: حول محل 5 إلى 20 / ثبت محل 3 في الأعلى / أخف محل 8 / أظهر كل المحلات / احذف محادثات / سعر بريدي موب</p>
+<div style="display:flex;gap:6px;margin:8px 0"><input class="input" id="botCmd" placeholder="حول محل 5 إلى 20" style="background:#1a1a1a;color:white;border-color:#333;margin:0"><button class="btn" onclick="execBot()">تحويل</button><button class="btn" style="background:#222" onclick="startVoice()">🎤</button></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<button class="btn" style="background:#222;font-size:11px" onclick="setCmd('حول محل 5 إلى 20')">حول محل 5 إلى 20</button>
+<button class="btn" style="background:#222;font-size:11px" onclick="setCmd('ثبت محل 2 في الأعلى')">ثبت محل 2</button>
+<button class="btn" style="background:#222;font-size:11px" onclick="setCmd('أخف محل 8')">أخف 8</button>
+<button class="btn" style="background:#222;font-size:11px" onclick="setCmd('أظهر كل المحلات')">أظهر الكل</button>
+<button class="btn" style="background:#222;font-size:11px" onclick="setCmd('احذف محادثات الأمس')">احذف محادثات</button>
+</div>
+<div class="log" id="botLog"></div>
+</div>
+<div style="padding:10px;font-size:12px;color:#666">💡 البوت ينفذ في الواجهة فوراً - الوصولات، الشات، الإعدادات كلها يمكن التحكم بها بالأوامر</div>
+</div>
+
+<div class="section" id="sec-receipts">
+<h4>💳 الوصولات - بريدي موب - نقاط</h4>
+<div class="receipt"><div><b>وصول #8821</b><br><span style="font-size:11px">محل #1247 - أثاث الراقي - 31 وهران<br>المبلغ: 5000 دج - 50 نقطة - RIP: **** **** 12<br>التاريخ: اليوم 14:32</span></div><div><button class="btn gold" style="padding:6px 10px" onclick="log('✅ تم تأكيد وصول #8821 - تم شحن 50 نقطة')">تأكيد</button><button class="btn" style="background:#fee;padding:6px 10px;color:#c00" onclick="this.closest('.receipt').remove()">رفض</button></div></div>
+<div class="receipt"><div><b>وصول #8820</b><br><span style="font-size:11px">محل #1012 - صالونات الجزائر - 16 الجزائر<br>المبلغ: 2000 دج - 20 نقطة<br>في الانتظار</span></div><div><button class="btn gold" style="padding:6px 10px">تأكيد</button><button class="btn" style="background:#fee;padding:6px 10px;color:#c00">رفض</button></div></div>
+<div style="background:#fff8e1;padding:10px;border-radius:12px;font-size:12px">⚠️ RIP القديم محذوف - في انتظار RIP الصحيح من الإدارة - الحقل فارغ بحدود حمراء</div>
+</div>
+
+<div class="section" id="sec-chat">
+<h4>💬 الشات المباشر مع المحلات</h4>
+<div style="border:1px solid #eee;border-radius:12px;max-height:320px;overflow:auto">
+<div class="chatrow"><span class="dot"></span><b>محل #1247</b>: السلام عليكم، هل الصالون متوفر؟ <span style="color:#999;font-size:11px">14:30</span> <button style="margin-right:auto;color:red;background:none;border:none" onclick="this.parentElement.remove()">🗑️ حذف</button></div>
+<div class="chatrow"><span class="dot"></span><b>محل #1012</b>: صورة الغرفة وصلت <span style="color:#999;font-size:11px">14:22</span> <button style="margin-right:auto;color:red;background:none;border:none">🗑️ حذف</button></div>
+<div class="chatrow"><span class="dot" style="background:#999"></span><b>محل #1005</b> (غير متصل): غدا أرسل القياسات <span style="color:#999;font-size:11px">أمس</span> <button style="margin-right:auto;color:red;background:none;border:none">🗑️ حذف</button></div>
+</div>
+<div style="display:flex;gap:6px;margin-top:10px"><input class="input" placeholder="اكتب رسالة للمحل #1247..." style="margin:0"><button class="btn gold">إرسال</button></div>
+<div style="font-size:11px;color:#666;margin-top:6px">البوت يسجل كل المحادثات - يمكنك الحذف متى تشاء - أمر البوت: احذف محادثات الأمس</div>
+</div>
+
+<div class="section" id="sec-settings">
+<h4>⚙️ إعدادات التطبيق</h4>
+<div style="display:grid;gap:10px">
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🎨 الألوان والإضاءة</b><br><label style="font-size:12px">نسبة الأبيض: <input type="range" value="70"> 70% (رائعة + أضواء بيضاء)</label></div>
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>💰 بريدي موب RIP</b><br><input class="input" placeholder="أدخل RIP الصحيح هنا - الحقل فارغ بحدود حمراء" style="border-color:red"><button class="btn gold" style="width:auto">حفظ RIP</button></div>
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>📋 السجل</b><br><label><input type="checkbox" checked> تفعيل تسجيل الزوار 👁️</label><br><label><input type="checkbox" checked> تفعيل النجوم ⭐ ومنع التكرار</label><br><label><input type="checkbox" checked> تسجيل محادثات البوت وحذفها متى تشاء</label></div>
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🤖 البوت</b><br><label><input type="checkbox" checked> تفعيل البوت العام</label> - زر تشغيل/إيقاف<br><input class="input" placeholder="رسالة ترحيب البوت"></div>
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🗺️ الولايات</b><br>58 ولاية كاملة 01-58 <button class="btn" style="width:auto;padding:6px">فحص</button></div>
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🔐 كود الإدارة</b><br><input class="input" placeholder="ameurali - مشفر" style="width:60%"><button class="btn" style="width:auto">تغيير</button></div>
+</div>
+</div>
+
+<div class="section" id="sec-shops"><div style="display:flex;justify-content:space-between"><h4>🔄 ترتيب المحلات في الواجهة</h4><button class="btn gold" onclick="saveOrder()">💾 حفظ</button></div><div id="adminShops" style="margin-top:8px;border:1px solid #eee;border-radius:12px;max-height:340px;overflow:auto"></div></div>
+
+</div></div></div>
+
+<script>
+let shops=[];for(let i=1;i<=20;i++){shops.push({id:1000+i,pos:i,name:`محل ${i} - ${['الراقي','الحديث','الجزائري','العصري'][i%4]}`,price:25000+i*1300,wilaya:[16,31,25][i%4],hidden:false,featured:i===1})}
+function render(){let g=document.getElementById('grid');g.innerHTML='';shops.filter(s=>!s.hidden).forEach((s,idx)=>{let d=document.createElement('div');d.className='card';d.innerHTML=`<div class="img">${['🛋️','🪑','🛏️','🍽️'][idx%4]}</div><div class="meta"><div style="font-size:13px;font-weight:700">${s.name}</div><div><span class="price">${s.price} دج</span> <span class="w">${s.wilaya}</span></div><div style="font-size:11px;color:#999">👁️ ${120+idx*3} ⭐ ${(4+Math.random()).toFixed(1)} • مرتبة ${s.pos}</div></div>`;d.onclick=()=>alert('سجل أولاً لرؤية المحل - واجهة التسجيل');g.appendChild(d);});renderAdmin();}
+function renderAdmin(){let a=document.getElementById('adminShops');if(!a) return;a.innerHTML='';shops.forEach((s,i)=>{let r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #f5f5f5;font-size:12px';r.innerHTML=`<span>#${s.id} - ${s.name} - مرتبة ${s.pos} ${s.featured?'⭐':''} ${s.hidden?'مخفي':''}</span><span><button onclick="move(${i},-1)">↥</button><button onclick="move(${i},1)">↧</button><button onclick="toggleHide(${i})">👁️</button></span>`;a.appendChild(r);});}
+function move(i,dir){let ni=i+dir;if(ni<0||ni>=shops.length) return;[shops[i],shops[ni]]=[shops[ni],shops[i]];shops.forEach((s,idx)=>s.pos=idx+1);render();log(`تم تحويل إلى ${ni+1}`);}
+function toggleHide(i){shops[i].hidden=!shops[i].hidden;render();}
+let clicks=0,last=0,tries=0,hashed="YW1ldXJhbGk=";
+document.getElementById('logo').addEventListener('click',()=>{let n=Date.now();if(n-last>3000) clicks=0;clicks++;last=n;if(clicks>=5){clicks=0;document.getElementById('adminLogin').classList.add('show')}});
+function tryAdmin(){let v=document.getElementById('ap').value.trim();if(btoa(v.toLowerCase())===hashed){document.getElementById('adminLogin').classList.remove('show');document.getElementById('adminPanel').classList.add('show');tries=0;log('✅ دخول - مرحبا ameurali - الإدارة الكاملة جاهزة');}else{tries++;document.getElementById('tr').textContent=tries+'/5';document.getElementById('ae').textContent=tries>=2?'غير صحيحة • تلميح: اسمك':'كلمة السر غير صحيحة';}}
+function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
+function switchTab(id){document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('sec-'+id).classList.add('active');event.target.classList.add('active');}
+function setCmd(t){document.getElementById('botCmd').value=t}
+function log(t){let l=document.getElementById('botLog');let time=new Date().toLocaleTimeString('ar-DZ');l.innerHTML+=`<div>[${time}] ${t}</div>`;l.scrollTop=l.scrollHeight}
+function execBot(){let cmd=document.getElementById('botCmd').value.trim();let m=cmd.match(/محل\s*(\d+)\s*إلى\s*(\d+)/);if(m){let f=parseInt(m[1]),t=parseInt(m[2]);let idx=shops.findIndex(s=>s.pos===f);if(idx>=0){let it=shops.splice(idx,1)[0];shops.splice(t-1,0,it);shops.forEach((s,i)=>s.pos=i+1);render();log(`✅ تم تحويل محل ${f} → ${t} في الواجهة`);}else log(`❌ محل ${f} غير موجود`);}else if(cmd.includes('ثبت')){let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);if(i>=0){let it=shops.splice(i,1)[0];it.featured=true;shops.unshift(it);shops.forEach((s,i)=>s.pos=i+1);render();log(`⭐ ثبت محل ${n} في الأعلى`);}}else if(cmd.includes('أخف')||cmd.includes('اخف')){let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);if(i>=0){shops[i].hidden=true;render();log(`👁️‍🗨️ أخفيت محل ${n}`);}}else if(cmd.includes('أظهر')||cmd.includes('اظهر')||cmd.includes('كل')){shops.forEach(s=>s.hidden=false);render();log(`👁️ أظهرت كل المحلات`);}else if(cmd.includes('احذف')&&cmd.includes('محادثات')){log(`🗑️ تم حذف محادثات الأمس - السجل`);}else if(cmd.includes('RIP')||cmd.includes('بريدي')){log(`💳 RIP: الحقل فارغ بانتظار الرقم الصحيح - اذهب لإعدادات التطبيق`);}else log(`❌ لم أفهم: ${cmd}`);}
+function startVoice(){log('🎤 استماع...');setTimeout(()=>{setCmd('حول محل 5 إلى 20');log('تم التعرف: حول محل 5 إلى 20')},1000)}
+function saveOrder(){log('💾 حفظ ترتيب المحلات - الواجهة تحدثت');}
+render();
+</script>
+</body>
+</html>

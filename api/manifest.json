@@ -1,0 +1,15 @@
+{
+  "name": "دار الأثاث - الجزائر 58 ولاية",
+  "short_name": "دار الأثاث",
+  "start_url": "/dar-al-athath/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b8935f",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2219/2219873.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

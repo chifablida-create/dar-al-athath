@@ -2,388 +2,239 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>دار الأثاث - المنصة الحقيقية</title>
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi2K/YsCDYp9mF2KvYqSIsInNob3J0X25hbWUiOiLYq9ix2KfYqiJ9">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دار الأثاث V18 WHITE REAL - الحقيقي أونلاين</title>
+<link rel="manifest" href="manifest.json">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#080808;color:#fff;font-family:system-ui,-apple-system,Segoe UI;min-height:100vh;padding-bottom:90px;overflow-x:hidden}
-header{background:linear-gradient(135deg,#111,#1a1a1a);padding:14px 12px;border-bottom:1px solid #222;position:sticky;top:0;z-index:50}
-.topRow{display:flex;justify-content:space-between;align-items:center}
-.logo{color:#d4b075;font-size:19px;font-weight:900;letter-spacing:.5px}
-.badgeTop{background:#1e1e1e;border:1px solid #333;padding:7px 12px;border-radius:20px;font-size:10px;color:#aaa;margin-top:8px;display:inline-flex;gap:8px;flex-wrap:wrap}
-.searchBar{padding:10px 12px;display:flex;gap:6px;background:#111;border-bottom:1px solid #222;position:sticky;top:58px;z-index:49}
-.searchBar input{flex:1;padding:11px 12px;border-radius:12px;border:1px solid #2a2a2a;background:#0e0e0e;color:#fff;font-size:13px;outline:none}
-.searchBar input:focus{border-color:#d4b075}
-.searchBar button{background:#1a1a1a;color:#aaa;border:1px solid #2a2a2a;border-radius:12px;padding:8px 12px;font-size:11px;cursor:pointer}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;min-height:400px}
-@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
-.card{background:linear-gradient(135deg,#161616,#1d1d1d);border:2px solid #2a2a2a;border-radius:16px;overflow:hidden;position:relative;cursor:pointer;transition:.2s}
-.card:active{transform:scale(.98)}
-.card.diamond{border-color:#00e5ff;box-shadow:0 0 18px rgba(0,229,255,.18)}
-.card.gold{border-color:#d4b075;box-shadow:0 0 12px rgba(212,176,117,.12)}
-.card.silver{border-color:#9a9a9a}
+body{background:#faf7f2;color:#2a2a2a;font-family:system-ui;padding-bottom:90px}
+header{background:#fff;padding:12px;border-bottom:1px solid #eee;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:18px;color:#b8965f}
+.badgeTop{background:#f6f1e8;border:1px solid #e8dcc8;padding:6px 12px;border-radius:20px;font-size:10px;color:#8a7a5f;margin:10px 12px;display:inline-flex;gap:8px;flex-wrap:wrap}
+.searchBar{padding:10px 12px;display:flex;gap:8px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:56px;z-index:49}
+.searchBar input{flex:1;padding:11px 14px;border-radius:14px;border:1px solid #e8e0d0;background:#fdfaf5;color:#2a2a2a;font-size:13px;outline:none}
+.searchBar button{background:#f6f1e8;border:1px solid #e8dcc8;border-radius:12px;padding:8px 12px;font-size:11px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.card{background:#fff;border:1px solid #eee;border-radius:20px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.card.diamond{border-color:#00e5ff;box-shadow:0 4px 20px rgba(0,229,255,.15)}
+.card.gold{border-color:#d4b075;box-shadow:0 4px 20px rgba(212,176,117,.15)}
+.card.silver{border-color:#bbb}
 .card.bronze{border-color:#cd7f32}
-.card.free{border-color:#2ecc71;border-style:dashed}
-.num{position:absolute;top:7px;right:7px;min-width:26px;height:26px;padding:0 6px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:#111;z-index:2}
-.num.diamond{background:linear-gradient(135deg,#00e5ff,#00bcd4)}
-.num.gold{background:#d4b075}
-.num.silver{background:#aaa}
-.num.bronze{background:#cd7f32;color:#fff}
-.num.free{background:#2ecc71}
-.favBtn{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.55);border:none;border-radius:50%;width:28px;height:28px;font-size:14px;cursor:pointer;backdrop-filter:blur(6px);z-index:2}
-.img{height:92px;background:radial-gradient(120% 120% at 30% 20%,#222,#151515);display:flex;align-items:center;justify-content:center;font-size:36px;position:relative}
-.wil{position:absolute;bottom:5px;right:5px;background:rgba(0,0,0,.7);padding:3px 7px;border-radius:20px;font-size:9px;color:#fff;border:1px solid rgba(255,255,255,.08)}
-.tierBadge{position:absolute;bottom:5px;left:5px;padding:3px 7px;border-radius:20px;font-size:9px;font-weight:800;color:#111}
-.tierBadge.diamond{background:#00e5ff}
-.tierBadge.gold{background:#d4b075}
-.tierBadge.silver{background:#aaa}
-.tierBadge.bronze{background:#cd7f32;color:#fff}
-.tierBadge.free{background:#2ecc71}
-.meta{padding:8px 8px 9px}
-.name{font-size:12px;font-weight:800;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.phoneLine{font-size:10px;color:#00e5ff;margin-top:3px;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sub{font-size:9px;color:#777;margin-top:4px;display:flex;justify-content:space-between;align-items:center}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(17,17,17,.96);backdrop-filter:blur(12px);border-top:1px solid #222;display:flex;justify-content:space-around;padding:6px 4px;z-index:99}
-.bottom button{background:none;border:none;color:#777;font-size:10px;padding:6px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:48px}
-.bottom button.active{color:#d4b075}
-.bottom .main{background:linear-gradient(135deg,#d4b075,#b8965f);color:#111;padding:8px 14px;border-radius:22px;font-weight:900;box-shadow:0 6px 16px rgba(212,176,117,.25)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:flex-start;justify-content:center;z-index:1000;overflow:auto;padding:12px}
+.card.free{border-style:dashed;border-color:#2ecc71}
+.img{height:110px;background:linear-gradient(135deg,#f9f5ef,#f0e8d8);display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
+.wil{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;padding:4px 8px;border-radius:20px;font-size:10px}
+.tier{position:absolute;top:8px;left:8px;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:800;color:#111}
+.tier.diamond{background:#00e5ff}
+.tier.gold{background:#d4b075}
+.tier.silver{background:#aaa}
+.tier.bronze{background:#cd7f32;color:#fff}
+.tier.free{background:#2ecc71}
+.meta{padding:10px}
+.name{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone{font-size:11px;color:#00a5bb;margin-top:3px;direction:ltr;text-align:right}
+.sub{font-size:10px;color:#999;margin-top:4px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 6px;z-index:99}
+.bottom button{background:none;border:none;color:#999;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.bottom button.main{background:#b8965f;color:#fff;padding:10px 18px;border-radius:24px;font-weight:900}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-start;justify-content:center;z-index:1000;overflow:auto;padding:12px}
 .modal.open{display:flex}
-.box{background:linear-gradient(135deg,#171717,#1e1e1e);border:1px solid #2a2a2a;border-radius:20px;padding:16px;width:100%;max-width:560px;margin:18px auto;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.box h3{font-size:15px;font-weight:900;margin-bottom:10px;color:#fff}
-.input{width:100%;padding:12px 12px;margin:7px 0;border-radius:12px;border:1px solid #2a2a2a;background:#0f0f0f;color:#fff;font-size:13px;outline:none}
-.input:focus{border-color:#d4b075}
-.btn{padding:12px;border-radius:12px;border:none;cursor:pointer;font-weight:800;font-size:13px;width:100%;margin-top:8px;transition:.2s}
-.btn.gold{background:linear-gradient(135deg,#d4b075,#b8965f);color:#111}
-.btn.cyan{background:linear-gradient(135deg,#00e5ff,#00bcd4);color:#001015}
-.btn.dark{background:#232323;color:#fff;border:1px solid #2a2a2a}
-.btn.green{background:#2ecc71;color:#111}
-.tierRow{display:flex;gap:6px;margin:10px 0}
-.tierRow button{flex:1;padding:10px 6px;border-radius:12px;border:2px solid #2a2a2a;background:#121212;color:#777;font-size:11px;font-weight:800;cursor:pointer}
-.tierRow button.active{border-color:#00e5ff;color:#00e5ff;background:#0a1a1d}
-.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#555}
-.empty b{color:#888;font-size:14px}
-.kpi{display:flex;gap:8px;overflow:auto;padding:0 12px 10px}
-.kpi span{background:#141414;border:1px solid #222;padding:6px 10px;border-radius:20px;font-size:10px;white-space:nowrap;color:#888}
+.box{background:#fff;border-radius:20px;padding:18px;width:100%;max-width:560px;margin:20px auto;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.input{width:100%;padding:12px;margin:6px 0;border-radius:12px;border:1px solid #e8e0d0;background:#fdfaf5;color:#2a2a2a;font-size:13px}
+.btn{width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;font-size:13px;margin-top:8px;cursor:pointer}
+.btn.gold{background:#b8965f;color:#fff}
+.btn.cyan{background:#00e5ff;color:#001015}
+.btn.dark{background:#f0e8d8;color:#5a4a30}
 </style>
 </head>
 <body>
 <header>
-<div class="topRow">
-<div class="logo">🏠 دار الأثاث <span style="font-size:10px;color:#666;font-weight:600">REAL</span></div>
-<div style="display:flex;gap:6px">
-<button onclick="openFav()" style="background:#1a1a1a;border:1px solid #222;border-radius:10px;padding:6px 10px;color:#fff;font-size:11px">❤️ <span id="favCount">0</span></button>
-<button onclick="toggleLang()" style="background:#1a1a1a;border:1px solid #222;border-radius:10px;padding:6px 8px;color:#fff;font-size:11px">🇩🇿/🇫🇷</button>
-</div>
-</div>
-<div id="headerBadge" class="badgeTop">جاري التحميل...</div>
+<div class="logo">🏠 دار الأثاث V18 WHITE REAL</div>
+<div style="display:flex;gap:6px"><button onclick="openFav()" style="background:#f6f1e8;border:1px solid #e8dcc8;border-radius:10px;padding:6px 10px">❤️ <span id="favCount">0</span></button><button onclick="openReg()" style="background:#b8965f;color:#fff;border:none;border-radius:12px;padding:8px 14px;font-weight:800">+ سجل كتاجر</button></div>
 </header>
-
-<div class="searchBar">
-<input id="searchInput" placeholder="🔍 بحث: اسم محل، ولاية، رقم..." oninput="doSearch()">
-<button onclick="openWilayas()">🗺️ الولايات</button>
-</div>
-<div class="kpi" id="kpiBar"></div>
-
+<div id="headerBadge" class="badgeTop">تحميل...</div>
+<div class="searchBar"><input id="searchInput" placeholder="🔍 بحث محل، ولاية، رقم..." oninput="doSearch()"><button onclick="openWilayas()">🗺️ 58 ولاية</button></div>
 <div class="grid" id="grid"></div>
-
 <div class="bottom">
-<button onclick="openWilayas()">🗺️<span>الولايات</span></button>
+<button onclick="openWilayas()">📍<span>الولايات</span></button>
 <button onclick="openAdminLogin()">👮<span>الإدارة</span></button>
 <button onclick="openHistory()">📋<span>السجل</span></button>
 <button onclick="openGlobalChat()">💬<span>شات</span></button>
-<button class="main" onclick="openReg()">🎁<span>تسجيل</span><small style="font-size:8px">15 يوم مجانا</small></button>
+<button class="main" onclick="openReg()">🏠</button>
 </div>
 
-<!-- REGISTRATION REAL -->
-<div class="modal" id="regModal">
-<div class="box">
-<h3>🏪 تسجيل محل جديد - 15 يوم مجانا</h3>
-<p style="font-size:11px;color:#888;margin-bottom:8px">سيظهر محلك في الواجهة مع رقمك الاختياري. الترتيب: 💎 ماسي يحتل الواجهة فوق > 🥇 ذهبي > 🥈 فضي تحت الذهبي > 🥉 برونزي > 🎁 مجاني بدون ترتيب.</p>
+<div class="modal" id="regModal"><div class="box">
+<h3>🏪 تسجيل - 15 يوم مجانا + العدد يزيد تلقائيا</h3>
 <input id="shopName" class="input" placeholder="اسم المحل *">
-<input id="shopPhone" class="input" placeholder="📞 رقم الهاتف (اختياري) - يظهر مع اسم المحل في الواجهة" type="tel" inputmode="numeric">
-<select id="wilayaSelect" class="input"><option>ورقلة</option><option>الجزائر</option><option>وهران</option><option>قسنطينة</option><option>مستغانم</option><option>باتنة</option><option>بجاية</option><option>البليدة</option><option>سطيف</option><option>عنابة</option><option>تيزي وزو</option><option>تلمسان</option></select>
-<input id="shopTrader" class="input" placeholder="اسم التاجر (اختياري)">
-
-<div class="tierRow">
-<button onclick="setTier('diamond')" id="tDiamond">💎 ماسي</button>
-<button onclick="setTier('gold')" id="tGold">🥇 ذهبي</button>
-<button onclick="setTier('silver')" id="tSilver">🥈 فضي</button>
-<button onclick="setTier('bronze')" id="tBronze">🥉 برونزي</button>
+<input id="shopPhone" class="input" placeholder="📞 رقم الهاتف (اختياري) يظهر مع اسم المحل">
+<select id="wilayaSelect" class="input"><option>ورقلة</option><option>الجزائر</option><option>وهران</option><option>قسنطينة</option><option>مستغانم</option><option>باتنة</option><option>البليدة</option></select>
+<div style="display:flex;gap:6px;margin:10px 0">
+<button onclick="setTier('diamond')" id="tDiamond" style="flex:1;padding:10px;border-radius:12px;border:2px solid #00e5ff;background:#e0f7fa;font-size:11px;font-weight:800">💎 ماسي</button>
+<button onclick="setTier('gold')" id="tGold" style="flex:1;padding:10px;border-radius:12px;border:2px solid #e8dcc8;background:#fdfaf5;font-size:11px">🥇 ذهبي</button>
+<button onclick="setTier('silver')" id="tSilver" style="flex:1;padding:10px;border-radius:12px;border:2px solid #e8dcc8;background:#fdfaf5;font-size:11px">🥈 فضي</button>
+<button onclick="setTier('bronze')" id="tBronze" style="flex:1;padding:10px;border-radius:12px;border:2px solid #e8dcc8;background:#fdfaf5;font-size:11px">🥉 برونزي</button>
 </div>
-
-<div style="background:#0f0f0f;border:1px dashed #00e5ff;border-radius:12px;padding:10px;margin:10px 0">
-<div style="font-size:11px">💳 RIB: <span id="ribDisplay" style="color:#00e5ff;font-family:monospace">00799999000122089353</span> - AMEUR <span style="color:#666">قابل للتعديل من الإدارة - لا يوضع بالمقلوب</span></div>
-</div>
-
-<div style="background:linear-gradient(135deg,#111,#171717);border:2px solid #d4b075;border-radius:14px;padding:12px;margin:12px 0">
-<div style="font-size:12px;font-weight:900;color:#d4b075">⭐ هنا تشتري النقاط - بريدي موب / شارجيلي - RIB قابل للنسخ</div>
+<div style="background:#fdfaf5;border:1px dashed #00e5ff;border-radius:12px;padding:10px;margin:10px 0;font-size:11px">💳 RIB: <b id="ribDisplay" style="color:#00a5bb;font-family:monospace">00799999000122089353</b> - AMEUR - قابل للتعديل من الإدارة - لا يوضع بالمقلوب</div>
+<div style="background:#fff;border:2px solid #b8965f;border-radius:14px;padding:12px;margin:12px 0">
+<div style="font-size:12px;font-weight:900;color:#b8965f">⭐ هنا تشتري النقاط - بريدي موب / شارجيلي</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-<button onclick="buyPoints(50,2500,'bronze')" style="background:#1a1a1a;border:1px solid #cd7f32;border-radius:12px;padding:10px;font-size:11px;color:#fff">🥉 50 نقطة<br><b>2500 دج</b></button>
-<button onclick="buyPoints(100,4500,'silver')" style="background:#1a1a1a;border:1px solid #aaa;border-radius:12px;padding:10px;font-size:11px;color:#fff">🥈 100 نقطة<br><b>4500 دج</b></button>
-<button onclick="buyPoints(200,8000,'gold')" style="background:#1a1a1a;border:1px solid #d4b075;border-radius:12px;padding:10px;font-size:11px;color:#fff">🥇 200 نقطة<br><b>8000 دج</b></button>
-<button onclick="buyPoints(500,18000,'diamond')" style="background:linear-gradient(135deg,#0a1e22,#111);border:2px solid #00e5ff;border-radius:12px;padding:10px;font-size:11px;color:#00e5ff;font-weight:900">💎 500 نقطة ماسي يحتل الواجهة<br><b>18000 دج</b></button>
+<button onclick="buyPoints(50,2500,'bronze')" style="background:#fdfaf5;border:1px solid #cd7f32;border-radius:12px;padding:10px;font-size:11px">🥉 50 نقطة<br><b>2500 دج</b></button>
+<button onclick="buyPoints(100,4500,'silver')" style="background:#fdfaf5;border:1px solid #aaa;border-radius:12px;padding:10px;font-size:11px">🥈 100 نقطة<br><b>4500 دج</b></button>
+<button onclick="buyPoints(200,8000,'gold')" style="background:#fdfaf5;border:1px solid #b8965f;border-radius:12px;padding:10px;font-size:11px">🥇 200 نقطة<br><b>8000 دج</b></button>
+<button onclick="buyPoints(500,18000,'diamond')" style="background:#e0f7fa;border:2px solid #00e5ff;border-radius:12px;padding:10px;font-size:11px;font-weight:900;color:#00a5bb">💎 500 نقطة ماسي يحتل الواجهة<br><b>18000 دج</b></button>
 </div>
-<div style="font-size:10px;color:#777;margin-top:8px;text-align:center">عند الضغط تفتح صفحة بريدي موب / شارجيلي مع إعلام المبلغ والـ RIB قابل للنسخ</div>
 </div>
-
-<button class="btn gold" onclick="publishShop()">🎁 نشر المحل - يزيد العدد تلقائيا</button>
+<button class="btn gold" onclick="publishShop()">🎁 نشر - يزيد العدد تلقائيا</button>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
-<!-- INSIDE REAL -->
-<div class="modal" id="insideModal">
-<div class="box">
-<div style="display:flex;justify-content:space-between;align-items:center"><h3 id="insideTitle"></h3><button onclick="closeAll()" style="background:#222;color:#fff;border:none;border-radius:50%;width:32px;height:32px">✕</button></div>
+<div class="modal" id="insideModal"><div class="box">
+<div style="display:flex;justify-content:space-between"><h3 id="insideTitle"></h3><button onclick="closeAll()" style="background:#f0e8d8;border:none;border-radius:50%;width:32px;height:32px">✕</button></div>
 <p id="insideInfo" style="font-size:11px;color:#888;margin:8px 0"></p>
-<div style="display:flex;gap:6px;margin:8px 0;flex-wrap:wrap">
-<button onclick="shareCurrent()" class="btn dark" style="width:auto;padding:8px 12px;font-size:11px">📤 مشاركة</button>
-<button onclick="mapCurrent()" class="btn dark" style="width:auto;padding:8px 12px;font-size:11px">📍 خريطة</button>
-<button onclick="favCurrent()" id="favCurrentBtn" class="btn dark" style="width:auto;padding:8px 12px;font-size:11px">🤍 مفضلة</button>
-</div>
 <div id="prodGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0"></div>
+<div style="display:flex;gap:6px"><button onclick="shareCurrent()" class="btn dark" style="width:auto">📤 مشاركة</button><button onclick="mapCurrent()" class="btn dark" style="width:auto">📍 خريطة</button><button onclick="favCurrent()" id="favCurrentBtn" class="btn dark" style="width:auto">🤍 مفضلة</button></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
-<button onclick="contactDealer()" class="btn green">📞 اتصال بالمتعامل</button>
-<button onclick="toggleChat()" class="btn cyan">💬 دردشة مع المحل</button>
+<button onclick="contactDealer()" class="btn gold">📞 اتصال</button>
+<button onclick="toggleChat()" class="btn cyan">💬 دردشة</button>
 </div>
-<div id="chatBox" style="display:none;margin-top:12px;background:#0f0f0f;border:1px solid #222;border-radius:14px;padding:10px">
-<div id="chatMessages" style="height:140px;overflow:auto;background:#080808;border-radius:10px;padding:8px;font-size:12px"></div>
-<div style="display:flex;gap:6px;margin-top:8px"><input id="chatInput" class="input" style="margin:0" placeholder="رسالتك..."><button onclick="sendChat()" class="btn cyan" style="width:auto;margin:0;padding:10px 14px">إرسال</button></div>
+<div id="chatBox" style="display:none;margin-top:12px;background:#fdfaf5;border:1px solid #e8dcc8;border-radius:14px;padding:10px">
+<div id="chatMessages" style="height:140px;overflow:auto;background:#fff;border-radius:10px;padding:8px;font-size:12px"></div>
+<div style="display:flex;gap:6px;margin-top:8px"><input id="chatInput" class="input" style="margin:0" placeholder="رسالتك..."><button onclick="sendChat()" class="btn cyan" style="width:auto;margin:0">إرسال</button></div>
 </div>
-</div>
-</div>
+</div></div>
 
-<!-- PAY REAL -->
-<div class="modal" id="payModal">
-<div class="box" style="max-width:420px;text-align:center">
-<h3 id="payTitle">💳 دفع النقاط</h3>
-<div id="payDetails" style="background:#0f0f0f;border:1px solid #222;border-radius:14px;padding:12px;margin:12px 0;text-align:right;font-size:12px;line-height:1.7"></div>
+<div class="modal" id="payModal"><div class="box" style="max-width:420px;text-align:center">
+<h3 id="payTitle">💳 دفع</h3>
+<div id="payDetails" style="background:#fdfaf5;border:1px solid #e8dcc8;border-radius:14px;padding:12px;margin:12px 0;text-align:right;font-size:12px"></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<button onclick="openBaridiMob()" style="background:linear-gradient(135deg,#0055a5,#002a5c);color:#fff;border:none;border-radius:14px;padding:16px;font-weight:900">📱 بريدي موب<br><small style="font-size:10px;opacity:.8">BaridiMob</small></button>
-<button onclick="openChargily()" style="background:linear-gradient(135deg,#ff6b00,#c94d00);color:#fff;border:none;border-radius:14px;padding:16px;font-weight:900">💳 شارجيلي<br><small style="font-size:10px;opacity:.8">Chargily Pay</small></button>
+<button onclick="openBaridiMob()" style="background:#0055a5;color:#fff;border:none;border-radius:14px;padding:16px;font-weight:900">📱 بريدي موب</button>
+<button onclick="openChargily()" style="background:#ff6b00;color:#fff;border:none;border-radius:14px;padding:16px;font-weight:900">💳 شارجيلي</button>
 </div>
-<div style="background:#080808;border:1px dashed #00e5ff;border-radius:12px;padding:12px;margin:12px 0">
-<div style="font-size:11px;color:#aaa">💳 RIB قابل للنسخ:</div>
-<div style="display:flex;gap:8px;margin-top:8px"><input id="ribCopyInput" readonly class="input" style="margin:0;text-align:center;font-family:monospace;color:#00e5ff"><button onclick="copyRib()" style="background:#00e5ff;color:#001015;border:none;border-radius:12px;padding:12px 16px;font-weight:900">📋 نسخ</button></div>
-<div id="copyMsg" style="font-size:11px;color:#2ecc71;margin-top:8px;display:none">✅ تم نسخ RIB!</div>
+<div style="background:#fff;border:1px dashed #00e5ff;border-radius:12px;padding:12px;margin:12px 0">
+<input id="ribCopyInput" readonly class="input" style="text-align:center;font-family:monospace;color:#00a5bb;margin:0">
+<button onclick="copyRib()" style="background:#00e5ff;color:#001015;border:none;border-radius:12px;padding:10px 16px;margin-top:8px;font-weight:900;width:100%">📋 نسخ RIB</button>
+<div id="copyMsg" style="display:none;color:#2ecc71;margin-top:6px">✅ تم النسخ!</div>
 </div>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
-<!-- ADMIN LOGIN -->
-<div class="modal" id="adminLoginModal">
-<div class="box" style="max-width:360px">
-<h3>👮 دخول الإدارة</h3>
-<p style="font-size:11px;color:#888">كلمة السر لا تظهر في الخانة العامة - قابلة للتعديل من الداخل</p>
+<div class="modal" id="adminLoginModal"><div class="box" style="max-width:360px">
+<h3>👮 إدارة</h3>
 <input id="adminPassInput" type="password" class="input" placeholder="كلمة السر" onkeypress="if(event.key==='Enter') checkAdminLogin()">
 <button class="btn gold" onclick="checkAdminLogin()">دخول</button>
 <button class="btn dark" onclick="closeAll()">إلغاء</button>
-</div>
-</div>
+</div></div>
 
-<!-- ADMIN REAL -->
-<div class="modal" id="adminModal">
-<div class="box" style="max-width:640px">
-<h3>👮 إدارة - صلاحية كاملة لترتيب أي محل</h3>
+<div class="modal" id="adminModal"><div class="box" style="max-width:640px">
+<h3>👮 إدارة - صلاحية كاملة</h3>
 <div id="adminShops" style="max-height:65vh;overflow:auto;margin:12px 0"></div>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
-<div class="modal" id="wilayasModal">
-<div class="box">
+<div class="modal" id="wilayasModal"><div class="box">
 <h3>🗺️ 58 ولاية</h3>
 <div id="wilayasGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:55vh;overflow:auto;margin:10px 0"></div>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
-<div class="modal" id="chatModal">
-<div class="box">
-<h3>💬 شات مع أي محل تريد</h3>
+<div class="modal" id="chatModal"><div class="box">
+<h3>💬 شات مع أي محل</h3>
 <select id="chatShopSelect" class="input"></select>
 <button class="btn cyan" onclick="startChatWithSelected()">💬 افتح شات</button>
 <div id="globalChatBox" style="display:none;margin-top:12px">
-<div id="globalChatTitle" style="font-size:12px;font-weight:800;margin-bottom:6px"></div>
-<div id="globalChatMessages" style="height:200px;overflow:auto;background:#080808;border-radius:12px;padding:8px;font-size:12px"></div>
-<div style="display:flex;gap:6px;margin-top:8px"><input id="globalChatInput" class="input" style="margin:0" placeholder="رسالتك..." onkeypress="if(event.key==='Enter') sendGlobalChat()"><button onclick="sendGlobalChat()" class="btn cyan" style="width:auto;margin:0">إرسال</button><button onclick="callFromChat()" class="btn green" style="width:auto;margin:0">📞</button></div>
+<div id="globalChatTitle" style="font-size:12px;font-weight:800"></div>
+<div id="globalChatMessages" style="height:200px;overflow:auto;background:#fdfaf5;border-radius:12px;padding:8px;margin:8px 0"></div>
+<div style="display:flex;gap:6px"><input id="globalChatInput" class="input" style="margin:0" placeholder="رسالتك..." onkeypress="if(event.key==='Enter') sendGlobalChat()"><button onclick="sendGlobalChat()" class="btn cyan" style="width:auto;margin:0">إرسال</button><button onclick="callFromChat()" class="btn gold" style="width:auto;margin:0">📞</button></div>
 </div>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
-<div class="modal" id="botModal">
-<div class="box">
-<h3>📋 السجل - بوت عربي/فرنسي</h3>
-<p style="font-size:10px;color:#777">ثبت محل 5 ماسي / mettre boutique 5 en diamant - البوت يهدر فرنسي فقط كي يشوف فرنسية</p>
+<div class="modal" id="botModal"><div class="box">
+<h3>📋 السجل</h3>
 <input id="botCmd" class="input" placeholder="ثبت محل 5 ماسي">
 <button class="btn gold" onclick="execBot()">تنفيذ</button>
-<div id="botLog" style="background:#0a0a0a;border:1px solid #1e1e1e;border-radius:12px;padding:8px;height:120px;overflow:auto;font-size:11px;color:#888;margin-top:8px"></div>
+<div id="botLog" style="background:#fdfaf5;border:1px solid #e8dcc8;border-radius:12px;padding:8px;height:120px;overflow:auto;font-size:11px;margin-top:8px"></div>
 <button class="btn dark" onclick="closeAll()">إغلاق</button>
-</div>
-</div>
+</div></div>
 
 <script>
-let shops=JSON.parse(localStorage.getItem('dar_real_shops')||'null')||[];
+let shops=JSON.parse(localStorage.getItem('dar_white_real')||'null')||[];
 let adminPassword=localStorage.getItem('dar_admin_pass')||'ameurali';
 let ribNumber=localStorage.getItem('dar_rib')||'00799999000122089353';
 let favorites=JSON.parse(localStorage.getItem('dar_fav')||'[]');
-let currentTier='diamond';
-let currentShop=null;
-let currentPay={};
-let currentGlobalChatShop=null;
+let currentTier='diamond',currentShop=null,currentPay={},currentGlobalChatShop=null;
 
-function saveAll(){localStorage.setItem('dar_real_shops', JSON.stringify(shops)); localStorage.setItem('dar_admin_pass', adminPassword); localStorage.setItem('dar_rib', ribNumber); localStorage.setItem('dar_fav', JSON.stringify(favorites));}
-
+function saveAll(){localStorage.setItem('dar_white_real',JSON.stringify(shops));localStorage.setItem('dar_admin_pass',adminPassword);localStorage.setItem('dar_rib',ribNumber);localStorage.setItem('dar_fav',JSON.stringify(favorites));}
 function initReal(){
  if(shops.length==0){
-  // وضع تجريبي أولي - يمكنك حذفه من الإدارة
-  let demoWils=['ورقلة','الجزائر','وهران','قسنطينة','مستغانم'];
-  for(let i=0;i<5;i++){
-   shops.push({id:Date.now()+i,pos:i+1,number:i+1,name:['الأناقة','الفخامة','الراحة','النجمة','قصر الأثاث'][i]+' - '+demoWils[i],trader:'تاجر '+demoWils[i],wilaya:demoWils[i],tier:i==0?'diamond':i==1?'gold':i==2?'silver':'bronze',hidden:false,code:'DZ-'+(100+i),phone:'0555 12 34 0'+i,products:[{name:'صالون',price:120000},{name:'طاولة',price:80000}]});
+  for(let i=0;i<20;i++){
+   let wils=['ورقلة','مستغانم','أولاد جلال','الطارف','إن قزام','المدية','تيبازة','الجزائر','تبسة','جيجل','المغير','البيض','أولاد جلال','سكيكدة','الطارف','البيض'];
+   let wil=wils[i%wils.length];
+   let tier=i<2?'diamond':i<5?'gold':i<10?'silver':i<16?'bronze':'free';
+   shops.push({id:Date.now()+i,pos:i+1,number:i+1,name:['الأناقة الراقية','الفخامة للأثاث','الراحة الذهبية','بيت العائلة','قصر الأثاث'][i%5]+' - '+wil,trader:'التاجر '+wil,wilaya:wil,tier:tier,hidden:false,code:'DZ-'+(100+i),phone:i%2==0?'0555 12 34 0'+(i%10):'',products:[{name:'طاولة طعام خشب زان',price:80000},{name:'صالون',price:120000}]});
   }
  }
  sortShops();
 }
-
-function sortShops(){
- let order={diamond:0,gold:1,silver:2,bronze:3,free:4};
- shops.forEach(s=>{if(s.freeTrial&&s.freeUntil&&new Date()>new Date(s.freeUntil)){s.freeTrial=false; s.tier='free';}});
- shops.sort((a,b)=>{
-  let fa=a.freeTrial&&new Date()<new Date(a.freeUntil), fb=b.freeTrial&&new Date()<new Date(b.freeUntil);
-  if(fa&&!fb) return 1; if(!fa&&fb) return -1;
-  let ra=order[a.tier]??4, rb=order[b.tier]??4;
-  if(ra!=rb) return ra-rb;
-  return a.pos-b.pos;
- });
- shops.forEach((s,i)=>{s.number=i+1;});
- saveAll();
-}
-
+function sortShops(){let order={diamond:0,gold:1,silver:2,bronze:3,free:4}; shops.sort((a,b)=>{let ra=order[a.tier]??4,rb=order[b.tier]??4; if(ra!=rb) return ra-rb; return a.pos-b.pos;}); shops.forEach((s,i)=>s.number=i+1); saveAll();}
 function render(){
- let badge=document.getElementById('headerBadge');
- let c={diamond:0,gold:0,silver:0,bronze:0,free:0};
- shops.forEach(s=>{if(s.freeTrial&&new Date()<new Date(s.freeUntil)) c.free++; else if(c[s.tier]!=undefined) c[s.tier]++; else c.free++;});
- badge.textContent=`${shops.length} محل حقيقي • 💎 ${c.diamond} ماسي يحتل الواجهة > 🥇 ${c.gold} ذهبي > 🥈 ${c.silver} فضي تحت الذهبي > 🥉 ${c.bronze} برونزي${c.free?` + 🎁 ${c.free} مجاني`:''} • 58 ولاية`;
+ let badge=document.getElementById('headerBadge'); let c={diamond:0,gold:0,silver:0,bronze:0,free:0}; shops.forEach(s=>{if(c[s.tier]!=undefined) c[s.tier]++; else c.free++;});
+ badge.textContent=`${shops.length} محل • 💎 ${c.diamond} ماسي يحتل الواجهة > 🥇 ${c.gold} ذهبي > 🥈 ${c.silver} فضي تحت الذهبي > 🥉 ${c.bronze} برونزي • 58 ولاية • الصور أولا`;
  document.getElementById('favCount').textContent=favorites.length;
- document.getElementById('kpiBar').innerHTML=`<span>👁️ ${shops.length*137} مشاهدة حقيقية</span><span>🆕 ${shops.filter(s=>Date.now()-s.id<86400000).length} جدد اليوم</span><span>🟢 ${Math.min(shops.length,12)} متصل</span><span>⭐ 4.9 تقييم</span><span>📦 ${shops.length} محل</span>`;
  document.getElementById('ribDisplay').textContent=ribNumber;
-
- let grid=document.getElementById('grid');
- grid.innerHTML='';
- let list=shops.filter(s=>!s.hidden);
- if(list.length==0){
-  grid.innerHTML=`<div class="empty"><b>لا يوجد محل بعد</b><br><br>اضغط 🎁 تسجيل لإضافة أول محل حقيقي<br>15 يوم مجانا - العدد يزيد تلقائيا<br><br>💎 ماسي يحتل الواجهة فوق<br>🥈 فضي تحت الذهبي</div>`;
-  return;
- }
+ let grid=document.getElementById('grid'); grid.innerHTML=''; let list=shops.filter(s=>!s.hidden);
+ if(list.length==0){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#999">لا يوجد محل<br><button onclick="openReg()" style="margin-top:12px;background:#b8965f;color:#fff;border:none;border-radius:12px;padding:10px 20px">+ سجل كتاجر</button></div>'; return;}
  list.forEach(s=>{
-  let div=document.createElement('div');
-  div.className='card '+(s.freeTrial&&new Date()<new Date(s.freeTrial||s.freeUntil)?'free':s.tier);
-  let fav=favorites.includes(s.id)?'❤️':'🤍';
-  let isFree=s.freeTrial&&new Date()<new Date(s.freeUntil);
-  let tierLabel=isFree?`🎁 ${Math.ceil((new Date(s.freeUntil)-new Date())/86400000)} يوم`:s.tier=='diamond'?'💎 ماسي':s.tier=='gold'?'🥇 ذهبي':s.tier=='silver'?'🥈 فضي':'🥉 برونزي';
-  div.innerHTML=`<div class="num ${isFree?'free':s.tier}">${s.number}</div><button class="favBtn" onclick="event.stopPropagation(); toggleFav(${s.id})">${fav}</button><div class="img">🛋️<span class="wil">📍 ${s.wilaya}</span><span class="tierBadge ${isFree?'free':s.tier}">${tierLabel}</span></div><div class="meta"><div class="name">${s.tier=='diamond'||s.tier=='gold'?'✅ ':''}${s.name}</div>${s.phone?`<div class="phoneLine">📞 ${s.phone}</div>`:''}<div class="sub"><span>${s.code}</span><span>⭐ 4.9</span></div></div>`;
-  div.onclick=()=>openInside(s);
-  grid.appendChild(div);
+  let div=document.createElement('div'); div.className='card '+(s.freeTrial&&s.freeUntil&&new Date()<new Date(s.freeUntil)?'free':s.tier);
+  let isFree=s.freeTrial&&new Date()<new Date(s.freeUntil); let tierLabel=isFree?`🎁 ${Math.ceil((new Date(s.freeUntil)-new Date())/86400000)} يوم`:s.tier=='diamond'?'💎 ماسي':s.tier=='gold'?'🥇 ذهبي':s.tier=='silver'?'🥈 فضي':'🥉 برونزي';
+  div.innerHTML=`<div class="img">🛋️<span class="wil">${s.wilaya}</span><span class="tier ${isFree?'free':s.tier}">${tierLabel}</span></div><div class="meta"><div style="font-size:10px;color:#b8965f">DZ-${100+s.number} • 10 صور أثاث</div><div class="name">${s.name}</div><div style="font-size:10px;color:#999;margin-top:2px">التاجر ${s.trader} • أثاث فاخر بجودة...</div>${s.phone?`<div class="phone">📞 ${s.phone}</div>`:''}<div class="sub"><span>صور أولاً ثم دردشة</span><span>⭐</span></div></div>`;
+  div.onclick=()=>openInside(s); grid.appendChild(div);
  });
 }
-
-function openInside(s){
- currentShop=s;
- document.getElementById('insideTitle').textContent=s.name;
- document.getElementById('insideInfo').textContent=`${s.code} - ${s.wilaya} - ${s.tier.toUpperCase()} - #${s.number}${s.phone?' - 📞 '+s.phone:''} - ${s.trader}`;
- let g=document.getElementById('prodGrid');
- g.innerHTML='';
- (s.products||[{name:'أثاث متنوع',price:0}]).forEach(p=>{
-  let c=document.createElement('div');
-  c.style.cssText='background:#161616;border:1px solid #222;border-radius:12px;padding:12px;text-align:center';
-  c.innerHTML=`<div style="font-size:28px">🪑</div><div style="font-size:12px;font-weight:800;margin-top:6px">${p.name}</div><div style="font-size:12px;color:#d4b075">${p.price?p.price.toLocaleString()+' دج':'اسأل عن السعر'}</div>`;
-  g.appendChild(c);
- });
- document.getElementById('chatBox').style.display='none';
- document.getElementById('chatMessages').innerHTML=`<div style="background:#1a1a1a;padding:8px;border-radius:10px">👋 مرحبا! أنا ${s.trader} صاحب ${s.name} من ${s.wilaya}${s.phone?` - 📞 ${s.phone}`:''}<br>كيف نقدر نعاونك؟</div>`;
- document.getElementById('insideModal').classList.add('open');
-}
-
+function openInside(s){currentShop=s; document.getElementById('insideTitle').textContent=s.name; document.getElementById('insideInfo').textContent=`${s.code} - ${s.wilaya} - ${s.tier} - #${s.number}${s.phone?' - 📞 '+s.phone:''}`; let g=document.getElementById('prodGrid'); g.innerHTML=''; (s.products||[]).forEach(p=>{let c=document.createElement('div'); c.style.cssText='background:#fdfaf5;border:1px solid #e8dcc8;border-radius:12px;padding:10px;text-align:center'; c.innerHTML=`<div style="font-size:24px">🪑</div><div style="font-size:11px;font-weight:800">${p.name}</div><div style="font-size:11px;color:#b8965f">${p.price.toLocaleString()} دج</div>`; g.appendChild(c);}); document.getElementById('chatBox').style.display='none'; document.getElementById('chatMessages').innerHTML=`<div style="background:#f6f1e8;padding:8px;border-radius:10px">👋 مرحبا! أنا ${s.trader} - ${s.name}</div>`; document.getElementById('insideModal').classList.add('open');}
 function doSearch(){let q=document.getElementById('searchInput').value.toLowerCase().trim(); if(!q){shops.forEach(s=>s.hidden=false); render(); return;} shops.forEach(s=>{let t=(s.name+' '+s.wilaya+' '+(s.phone||'')+' '+s.code).toLowerCase(); s.hidden=t.indexOf(q)==-1;}); render();}
 function toggleFav(id){let i=favorites.indexOf(id); if(i>=0) favorites.splice(i,1); else favorites.push(id); saveAll(); render();}
-function openFav(){if(favorites.length==0){alert('لا يوجد مفضلة ❤️'); return;} shops.forEach(s=>s.hidden=favorites.indexOf(s.id)==-1); render();}
-function shareCurrent(){if(!currentShop) return; let txt=`🏠 ${currentShop.name} - ${currentShop.wilaya} ${currentShop.phone?'📞 '+currentShop.phone:''} - ${currentShop.code}`; navigator.clipboard.writeText(txt).then(()=>alert('✅ تم نسخ رابط المحل')).catch(()=>prompt('انسخ:',txt));}
-function mapCurrent(){if(!currentShop) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(currentShop.wilaya+' '+currentShop.name),'_blank');}
-function favCurrent(){if(!currentShop) return; toggleFav(currentShop.id); document.getElementById('favCurrentBtn').textContent=favorites.includes(currentShop.id)?'❤️ مفضلة':'🤍 مفضلة';}
-
-function setTier(t){currentTier=t; ['diamond','gold','silver','bronze'].forEach(x=>{let el=document.getElementById('t'+x.charAt(0).toUpperCase()+x.slice(1)); if(el){el.classList.toggle('active', x==t);}});}
-
-function publishShop(){
- let name=document.getElementById('shopName').value.trim(); if(!name){alert('اكتب اسم المحل'); return;}
- let phone=document.getElementById('shopPhone').value.trim();
- let wil=document.getElementById('wilayaSelect').value;
- let trader=document.getElementById('shopTrader').value.trim()||'تاجر '+wil;
- let until=new Date(); until.setDate(until.getDate()+15);
- shops.push({id:Date.now(),pos:999,number:999,name:name+' - '+wil,wilaya:wil,trader:trader,tier:'free',hidden:false,code:'DZ-'+(100+shops.length),phone:phone,products:[],freeTrial:true,freeUntil:until});
- sortShops(); render(); closeAll(); alert('🎁 مبروك! تم نشر '+name+' - 15 يوم مجانا - العدد الآن '+shops.length+' محل حقيقي');
- document.getElementById('shopName').value=''; document.getElementById('shopPhone').value=''; document.getElementById('shopTrader').value='';
-}
-
+function openFav(){if(favorites.length==0){alert('لا يوجد مفضلة'); return;} shops.forEach(s=>s.hidden=favorites.indexOf(s.id)==-1); render();}
+function shareCurrent(){if(!currentShop) return; navigator.clipboard.writeText(currentShop.name+' - '+currentShop.wilaya); alert('✅ تم النسخ');}
+function mapCurrent(){if(!currentShop) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(currentShop.wilaya),'_blank');}
+function favCurrent(){if(!currentShop) return; toggleFav(currentShop.id);}
+function setTier(t){currentTier=t; ['diamond','gold','silver','bronze'].forEach(x=>{let el=document.getElementById('t'+x.charAt(0).toUpperCase()+x.slice(1)); if(el){el.style.borderColor=x==t?'#00e5ff':'#e8dcc8'; el.style.background=x==t?'#e0f7fa':'#fdfaf5';}});}
+function publishShop(){let name=document.getElementById('shopName').value.trim(); if(!name){alert('اكتب اسم المحل'); return;} let phone=document.getElementById('shopPhone').value.trim(); let wil=document.getElementById('wilayaSelect').value; let until=new Date(); until.setDate(until.getDate()+15); shops.push({id:Date.now(),pos:999,number:999,name:name+' - '+wil,wilaya:wil,trader:'جديد',tier:'free',hidden:false,code:'DZ-'+(100+shops.length),phone:phone,products:[],freeTrial:true,freeUntil:until}); sortShops(); render(); closeAll(); alert('🎁 تم النشر - 15 يوم مجانا - العدد الآن '+shops.length);}
 function openReg(){document.getElementById('regModal').classList.add('open');}
 function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'));}
-function contactDealer(){if(!currentShop) return; let ph=currentShop.phone||'0555123456'; window.location.href='tel:'+ph.replace(/\s/g,'');}
+function contactDealer(){if(!currentShop) return; window.location.href='tel:'+(currentShop.phone||'0555123456').replace(/\s/g,'');}
 function toggleChat(){let b=document.getElementById('chatBox'); b.style.display=b.style.display=='none'?'block':'none';}
-function sendChat(){let inp=document.getElementById('chatInput'); let txt=inp.value.trim(); if(!txt) return; let msgs=document.getElementById('chatMessages'); msgs.innerHTML+='<div style="background:linear-gradient(135deg,#00e5ff,#00bcd4);color:#001015;padding:8px;border-radius:10px;margin:6px 0">أنت: '+txt+'</div>'; inp.value=''; msgs.scrollTop=msgs.scrollHeight; setTimeout(()=>{msgs.innerHTML+='<div style="background:#1e1e1e;padding:8px;border-radius:10px;margin:6px 0">👨‍💼 '+currentShop.trader+': شكرا "'+txt+'" راح نرد عليك!</div>'; msgs.scrollTop=msgs.scrollHeight;},700);}
-
-function buyPoints(pts,price,tier){currentPay={pts,price,tier}; document.getElementById('ribCopyInput').value=ribNumber; document.getElementById('payTitle').textContent='💳 شراء '+pts+' نقطة - '+(tier=='diamond'?'💎 ماسي يحتل الواجهة':tier=='gold'?'🥇 ذهبي':tier=='silver'?'🥈 فضي تحت الذهبي':'🥉 برونزي'); document.getElementById('payDetails').innerHTML=`<div style="display:flex;justify-content:space-between"><span>📦 الباقة:</span><b>${pts} نقطة - ${tier.toUpperCase()}</b></div><div style="display:flex;justify-content:space-between"><span>💰 المبلغ:</span><b style="color:#00e5ff;font-size:18px">${price.toLocaleString()} دج</b></div><div style="display:flex;justify-content:space-between"><span>📅 المدة:</span><span>30 يوم</span></div><div style="display:flex;justify-content:space-between"><span>👤 المستفيد:</span><span>AMEUR</span></div><div style="display:flex;justify-content:space-between;border-top:1px solid #222;margin-top:8px;padding-top:8px"><span>💳 RIB:</span><span style="color:#00e5ff;font-family:monospace">${ribNumber}</span></div>`; document.getElementById('payModal').classList.add('open');}
-function copyRib(){let inp=document.getElementById('ribCopyInput'); inp.select(); try{navigator.clipboard.writeText(inp.value);}catch(e){document.execCommand('copy');} document.getElementById('copyMsg').style.display='block'; setTimeout(()=>document.getElementById('copyMsg').style.display='none',2500);}
-function openBaridiMob(){window.open('https://baridimob.poste.dz/','_blank'); setTimeout(()=>{if(confirm('📱 بريدي موب\nالمبلغ: '+currentPay.price+' دج\nRIB: '+ribNumber+'\n\nنسخ RIB؟')) copyRib();},600);}
-function openChargily(){window.open('https://pay.chargily.com/','_blank'); setTimeout(()=>{if(confirm('💳 شارجيلي\nالمبلغ: '+currentPay.price+' دج\nRIB: '+ribNumber+'\n\nنسخ RIB؟')) copyRib();},600);}
-
-function openAdminLogin(){document.getElementById('adminLoginModal').classList.add('open'); document.getElementById('adminPassInput').value=''; document.getElementById('adminPassInput').focus();}
-function checkAdminLogin(){let p=document.getElementById('adminPassInput').value; if(p==adminPassword){closeAll(); document.getElementById('adminModal').classList.add('open'); renderAdmin();} else alert('❌ كلمة سر خاطئة');}
+function sendChat(){let inp=document.getElementById('chatInput'); let txt=inp.value.trim(); if(!txt) return; let msgs=document.getElementById('chatMessages'); msgs.innerHTML+='<div style="background:#00e5ff;color:#001015;padding:8px;border-radius:10px;margin:6px 0">أنت: '+txt+'</div>'; inp.value=''; msgs.scrollTop=msgs.scrollHeight; setTimeout(()=>{msgs.innerHTML+='<div style="background:#f6f1e8;padding:8px;border-radius:10px;margin:6px 0">👨‍💼 '+currentShop.trader+': شكرا</div>'; msgs.scrollTop=msgs.scrollHeight;},600);}
+function buyPoints(pts,price,tier){currentPay={pts,price,tier}; document.getElementById('ribCopyInput').value=ribNumber; document.getElementById('payTitle').textContent='💳 شراء '+pts+' نقطة - '+tier; document.getElementById('payDetails').innerHTML=`<div>📦 ${pts} نقطة - ${tier}</div><div>💰 <b style="color:#00a5bb;font-size:18px">${price} دج</b></div><div>💳 RIB: ${ribNumber}</div>`; document.getElementById('payModal').classList.add('open');}
+function copyRib(){let inp=document.getElementById('ribCopyInput'); inp.select(); try{navigator.clipboard.writeText(inp.value);}catch(e){} document.getElementById('copyMsg').style.display='block'; setTimeout(()=>document.getElementById('copyMsg').style.display='none',2000);}
+function openBaridiMob(){window.open('https://baridimob.poste.dz/','_blank');}
+function openChargily(){window.open('https://pay.chargily.com/','_blank');}
+function openAdminLogin(){document.getElementById('adminLoginModal').classList.add('open');}
+function checkAdminLogin(){let p=document.getElementById('adminPassInput').value; if(p==adminPassword){closeAll(); document.getElementById('adminModal').classList.add('open'); renderAdmin();} else alert('❌');}
 function renderAdmin(){
  let a=document.getElementById('adminShops'); a.innerHTML='';
- let set=document.createElement('div');
- set.style.cssText='background:linear-gradient(135deg,#111,#1a1a1a);border:1px solid #333;border-radius:14px;padding:12px;margin-bottom:12px';
- set.innerHTML=`<div style="font-size:12px;font-weight:900;color:#00e5ff">⚙️ إعدادات حقيقية - قابلة للتعديل</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><div><div style="font-size:10px;color:#888">كلمة سر الإدارة (لا تظهر في الخانة العامة)</div><div style="display:flex;gap:6px;margin-top:4px"><input id="editPass" type="text" value="${adminPassword}" class="input" style="margin:0;padding:8px;font-size:11px"><button onclick="savePass()" style="background:#00e5ff;color:#001015;border:none;border-radius:8px;padding:8px 12px;font-size:10px;font-weight:800">حفظ</button></div></div><div><div style="font-size:10px;color:#888">رقم RIB - قابل للتعديل - لا يوضع بالمقلوب</div><div style="display:flex;gap:6px;margin-top:4px"><input id="editRib" type="text" value="${ribNumber}" class="input" style="margin:0;padding:8px;font-size:11px;font-family:monospace;color:#00e5ff"><button onclick="saveRib()" style="background:#2ecc71;color:#111;border:none;border-radius:8px;padding:8px 12px;font-size:10px;font-weight:800">حفظ RIB</button></div></div></div><div style="font-size:9px;color:#666;margin-top:6px">❤️‍🔥 صلاحية كاملة: ترتيب أي محل، نقل إلى أي رقم، تحويل ماسي/ذهبي/فضي/برونزي، شات، حذف</div>`;
+ let set=document.createElement('div'); set.style.cssText='background:#fdfaf5;border:1px solid #e8dcc8;border-radius:14px;padding:12px;margin-bottom:12px';
+ set.innerHTML=`<div style="font-weight:900">⚙️ إعدادات</div><div style="display:flex;gap:6px;margin-top:6px"><input id="editPass" value="${adminPassword}" class="input" style="margin:0;padding:8px"><button onclick="savePass()" style="background:#00e5ff;border:none;border-radius:8px;padding:8px 12px;font-weight:800">حفظ كلمة السر</button></div><div style="display:flex;gap:6px;margin-top:6px"><input id="editRib" value="${ribNumber}" class="input" style="margin:0;padding:8px;font-family:monospace;color:#00a5bb"><button onclick="saveRib()" style="background:#2ecc71;border:none;border-radius:8px;padding:8px 12px;font-weight:800">حفظ RIB</button></div>`;
  a.appendChild(set);
  shops.forEach((s,i)=>{
-  let row=document.createElement('div');
-  row.style.cssText='background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:10px;margin-bottom:8px;font-size:11px';
-  row.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span><b>#${s.number} ${s.code}</b> ${s.name} ${s.phone?`<span style="color:#00e5ff">📞 ${s.phone}</span>`:''} <b style="color:${s.tier=='diamond'?'#00e5ff':'#d4b075'}">${s.tier.toUpperCase()}</b> - ${s.wilaya}</span><span style="display:flex;gap:4px;align-items:center"><input id="pos_${i}" type="number" min="1" max="${shops.length}" value="${s.number}" style="width:52px;padding:6px;border-radius:8px;border:1px solid #333;background:#0f0f0f;color:#fff;text-align:center"><button onclick="moveTo(${i})" style="background:#00e5ff;color:#001015;border:none;border-radius:8px;padding:6px 10px;font-size:10px;font-weight:800">↕️ نقل</button><button onclick="moveUp(${i})" style="background:#222;color:#fff;border:1px solid #333;border-radius:8px;padding:6px 8px">⬆️</button><button onclick="moveDown(${i})" style="background:#222;color:#fff;border:1px solid #333;border-radius:8px;padding:6px 8px">⬇️</button></span></div><div style="display:flex;gap:4px;margin-top:8px;flex-wrap:wrap"><button onclick="setTierAdmin(${i},'diamond')" style="background:#00e5ff;color:#001015;border:none;border-radius:8px;padding:6px 10px;font-size:10px;font-weight:800">💎 ماسي يحتل الواجهة</button><button onclick="setTierAdmin(${i},'gold')" style="background:#d4b075;color:#111;border:none;border-radius:8px;padding:6px 10px;font-size:10px;font-weight:800">🥇 ذهبي</button><button onclick="setTierAdmin(${i},'silver')" style="background:#aaa;color:#111;border:none;border-radius:8px;padding:6px 10px;font-size:10px;font-weight:800">🥈 فضي تحت الذهبي</button><button onclick="setTierAdmin(${i},'bronze')" style="background:#cd7f32;color:#fff;border:none;border-radius:8px;padding:6px 10px;font-size:10px">🥉 برونزي</button><button onclick="chatShop(${i})" style="background:#00e5ff;color:#001015;border:none;border-radius:8px;padding:6px 10px;font-size:10px;font-weight:800">💬 شات</button><button onclick="deleteShop(${i})" style="background:#1a1a1a;color:#ff5555;border:1px solid #331111;border-radius:8px;padding:6px 10px;font-size:10px">🗑️ حذف</button></div>`;
+  let row=document.createElement('div'); row.style.cssText='background:#fdfaf5;border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:8px;font-size:11px';
+  row.innerHTML=`<div><b>#${s.number} ${s.code}</b> ${s.name} ${s.phone?`📞 ${s.phone}`:''} <b style="color:#b8965f">${s.tier}</b> - ${s.wilaya}</div><div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><input id="pos_${i}" type="number" value="${s.number}" min="1" max="${shops.length}" style="width:50px;padding:4px;border-radius:8px;border:1px solid #e8dcc8"><button onclick="moveTo(${i})" style="background:#00e5ff;border:none;border-radius:8px;padding:6px 10px">نقل</button><button onclick="setTierAdmin(${i},'diamond')" style="background:#00e5ff;border:none;border-radius:8px;padding:6px 8px">💎</button><button onclick="setTierAdmin(${i},'gold')" style="background:#b8965f;color:#fff;border:none;border-radius:8px;padding:6px 8px">🥇</button><button onclick="setTierAdmin(${i},'silver')" style="background:#aaa;color:#fff;border:none;border-radius:8px;padding:6px 8px">🥈</button><button onclick="setTierAdmin(${i},'bronze')" style="background:#cd7f32;color:#fff;border:none;border-radius:8px;padding:6px 8px">🥉</button><button onclick="chatShop(${i})" style="background:#00e5ff;border:none;border-radius:8px;padding:6px 8px">💬</button><button onclick="deleteShop(${i})" style="background:#ffdddd;color:#c00;border:none;border-radius:8px;padding:6px 8px">🗑️</button></div>`;
   a.appendChild(row);
  });
 }
-function savePass(){let v=document.getElementById('editPass').value.trim(); if(v){adminPassword=v; saveAll(); alert('✅ تم حفظ كلمة السر الجديدة: '+v);}}
-function saveRib(){let v=document.getElementById('editRib').value.trim(); if(v){ribNumber=v; saveAll(); document.getElementById('ribDisplay').textContent=v; alert('✅ تم حفظ RIB: '+v);}}
-function moveTo(i){let inp=document.getElementById('pos_'+i); let np=parseInt(inp.value); if(!np||np<1||np>shops.length) return; let s=shops.splice(i,1)[0]; shops.splice(np-1,0,s); shops.forEach((x,idx)=>x.pos=idx+1); sortShops(); render(); renderAdmin();}
-function moveUp(i){if(i==0) return; let s=shops.splice(i,1)[0]; shops.splice(i-1,0,s); shops.forEach((x,idx)=>x.pos=idx+1); sortShops(); render(); renderAdmin();}
-function moveDown(i){if(i>=shops.length-1) return; let s=shops.splice(i,1)[0]; shops.splice(i+1,0,s); shops.forEach((x,idx)=>x.pos=idx+1); sortShops(); render(); renderAdmin();}
+function savePass(){let v=document.getElementById('editPass').value.trim(); if(v){adminPassword=v; saveAll(); alert('✅ حفظ');}}
+function saveRib(){let v=document.getElementById('editRib').value.trim(); if(v){ribNumber=v; saveAll(); document.getElementById('ribDisplay').textContent=v; alert('✅ حفظ RIB');}}
+function moveTo(i){let np=parseInt(document.getElementById('pos_'+i).value); if(!np) return; let s=shops.splice(i,1)[0]; shops.splice(np-1,0,s); shops.forEach((x,idx)=>x.pos=idx+1); sortShops(); render(); renderAdmin();}
 function setTierAdmin(i,t){shops[i].tier=t; shops[i].freeTrial=false; sortShops(); render(); renderAdmin();}
-function deleteShop(i){if(confirm('حذف '+shops[i].name+' نهائيا؟')){shops.splice(i,1); sortShops(); render(); renderAdmin(); saveAll();}}
-function chatShop(i){closeAll(); openGlobalChat(); let sel=document.getElementById('chatShopSelect'); sel.selectedIndex=i; startChatWithSelected();}
-
-function openGlobalChat(){let sel=document.getElementById('chatShopSelect'); sel.innerHTML=''; shops.forEach((s,i)=>{let o=document.createElement('option'); o.value=i; o.textContent='#'+s.number+' '+s.name+(s.phone?' 📞 '+s.phone:'')+' - '+s.wilaya; sel.appendChild(o);}); document.getElementById('globalChatBox').style.display='none'; document.getElementById('chatModal').classList.add('open');}
-function startChatWithSelected(){let idx=parseInt(document.getElementById('chatShopSelect').value); if(isNaN(idx)) return; currentGlobalChatShop=shops[idx]; document.getElementById('globalChatTitle').textContent='💬 شات مع '+currentGlobalChatShop.name+(currentGlobalChatShop.phone?' - 📞 '+currentGlobalChatShop.phone:''); document.getElementById('globalChatMessages').innerHTML='<div style="background:#1a1a1a;padding:8px;border-radius:10px">👋 مرحبا! أنا '+currentGlobalChatShop.trader+' - '+currentGlobalChatShop.name+'<br>'+currentGlobalChatShop.wilaya+'</div>'; document.getElementById('globalChatBox').style.display='block';}
-function sendGlobalChat(){let inp=document.getElementById('globalChatInput'); let txt=inp.value.trim(); if(!txt||!currentGlobalChatShop) return; let msgs=document.getElementById('globalChatMessages'); msgs.innerHTML+='<div style="background:linear-gradient(135deg,#00e5ff,#00bcd4);color:#001015;padding:8px;border-radius:10px;margin:6px 0">أنت: '+txt+'</div>'; inp.value=''; msgs.scrollTop=msgs.scrollHeight; setTimeout(()=>{msgs.innerHTML+='<div style="background:#1e1e1e;padding:8px;border-radius:10px;margin:6px 0">👨‍💼 '+currentGlobalChatShop.trader+': شكرا "'+txt+'" راح نرد!</div>'; msgs.scrollTop=msgs.scrollHeight;},600);}
-function callFromChat(){if(!currentGlobalChatShop) return; let ph=currentGlobalChatShop.phone||'0555123456'; window.location.href='tel:'+ph.replace(/\s/g,'');}
-
-function openWilayas(){
- let wilayas=['أدرار','الشلف','الأغواط','أم البواقي','باتنة','بجاية','بسكرة','بشار','البليدة','البويرة','تمنراست','تبسة','تلمسان','تيارت','تيزي وزو','الجزائر','الجلفة','جيجل','سطيف','سعيدة','سكيكدة','سيدي بلعباس','عنابة','قالمة','قسنطينة','المدية','مستغانم','المسيلة','معسكر','ورقلة','وهران','البيض','إليزي','برج بوعريريج','بومرداس','الطارف','تندوف','تسمسيلت','الوادي','خنشلة','سوق أهراس','تيبازة','ميلة','عين الدفلى','النعامة','عين تموشنت','غرداية','غليزان','تيميمون','برج باجي مختار','أولاد جلال','بني عباس','عين صالح','عين قزام','تقرت','جانت','المغير','المنيعة'];
- let grid=document.getElementById('wilayasGrid'); grid.innerHTML='';
- wilayas.forEach(w=>{
-  let b=document.createElement('button'); b.style.cssText='padding:10px;border-radius:12px;border:1px solid #222;background:#141414;color:#fff;font-size:11px'; b.textContent=w+' ('+shops.filter(s=>s.wilaya==w).length+')'; b.onclick=()=>{shops.forEach(s=>s.hidden=s.wilaya!=w); render(); closeAll();}; grid.appendChild(b);
- });
- let all=document.createElement('button'); all.style.cssText='grid-column:1/-1;padding:10px;border-radius:12px;border:2px solid #d4b075;background:#111;color:#d4b075;font-size:11px'; all.textContent='كل الولايات - '+shops.length+' محل'; all.onclick=()=>{shops.forEach(s=>s.hidden=false); render(); closeAll();}; grid.appendChild(all);
- document.getElementById('wilayasModal').classList.add('open');
-}
-
+function deleteShop(i){if(confirm('حذف؟')){shops.splice(i,1); sortShops(); render(); renderAdmin();}}
+function chatShop(i){closeAll(); openGlobalChat(); document.getElementById('chatShopSelect').selectedIndex=i; startChatWithSelected();}
+function openGlobalChat(){let sel=document.getElementById('chatShopSelect'); sel.innerHTML=''; shops.forEach((s,i)=>{let o=document.createElement('option'); o.value=i; o.textContent='#'+s.number+' '+s.name+(s.phone?' 📞 '+s.phone:''); sel.appendChild(o);}); document.getElementById('globalChatBox').style.display='none'; document.getElementById('chatModal').classList.add('open');}
+function startChatWithSelected(){let idx=parseInt(document.getElementById('chatShopSelect').value); if(isNaN(idx)) return; currentGlobalChatShop=shops[idx]; document.getElementById('globalChatTitle').textContent='💬 شات مع '+currentGlobalChatShop.name; document.getElementById('globalChatMessages').innerHTML='<div style="background:#f6f1e8;padding:8px;border-radius:10px">👋 مرحبا! أنا '+currentGlobalChatShop.trader+'</div>'; document.getElementById('globalChatBox').style.display='block';}
+function sendGlobalChat(){let inp=document.getElementById('globalChatInput'); let txt=inp.value.trim(); if(!txt||!currentGlobalChatShop) return; let msgs=document.getElementById('globalChatMessages'); msgs.innerHTML+='<div style="background:#00e5ff;color:#001015;padding:8px;border-radius:10px;margin:6px 0">أنت: '+txt+'</div>'; inp.value=''; msgs.scrollTop=msgs.scrollHeight;}
+function callFromChat(){if(!currentGlobalChatShop) return; window.location.href='tel:'+(currentGlobalChatShop.phone||'').replace(/\s/g,'');}
+function openWilayas(){let wilayas=['ورقلة','الجزائر','وهران','قسنطينة','مستغانم','باتنة','بجاية','عنابة','البليدة']; let grid=document.getElementById('wilayasGrid'); grid.innerHTML=''; wilayas.forEach(w=>{let b=document.createElement('button'); b.style.cssText='padding:10px;border-radius:12px;border:1px solid #e8dcc8;background:#fdfaf5'; b.textContent=w+' ('+shops.filter(s=>s.wilaya==w).length+')'; b.onclick=()=>{shops.forEach(s=>s.hidden=s.wilaya!=w); render(); closeAll();}; grid.appendChild(b);}); let all=document.createElement('button'); all.style.cssText='grid-column:1/-1;padding:10px;border-radius:12px;border:2px solid #b8965f;background:#fff;color:#b8965f'; all.textContent='كل الولايات - '+shops.length; all.onclick=()=>{shops.forEach(s=>s.hidden=false); render(); closeAll();}; grid.appendChild(all); document.getElementById('wilayasModal').classList.add('open');}
 function openHistory(){document.getElementById('botModal').classList.add('open');}
-function execBot(){let raw=document.getElementById('botCmd').value.trim(); if(!raw) return; let cmd=raw.toLowerCase(); let n=(cmd.match(/\d+/)||[])[0]; if(n){let idx=shops.findIndex(s=>s.number==parseInt(n)); if(idx>=0&&cmd.includes('ماسي')){shops[idx].tier='diamond'; sortShops(); render(); document.getElementById('botLog').innerHTML+='<div>💎 ماسي #'+n+'</div>'; return;} if(idx>=0&&cmd.includes('ذهبي')){shops[idx].tier='gold'; sortShops(); render(); document.getElementById('botLog').innerHTML+='<div>🥇 ذهبي #'+n+'</div>'; return;}} document.getElementById('botLog').innerHTML+='<div>❌ '+raw+'</div>';}
-
-function toggleLang(){let inp=document.getElementById('searchInput'); if(inp.placeholder.includes('بحث')){inp.placeholder='🔍 Search shop, wilaya, phone...'; alert('🇫🇷 Français activé - Le bot parle français seulement quand il voit du français');} else {inp.placeholder='🔍 بحث: اسم محل، ولاية، رقم...'; alert('🇩🇿 عربي');}}
-
-window.onload=function(){initReal(); render(); setTier('diamond'); document.getElementById('botLog').innerHTML='<div>✅ المنصة الحقيقية جاهزة - '+shops.length+' محل - محفوظ في الجهاز</div>';};
+function execBot(){let raw=document.getElementById('botCmd').value.trim(); if(!raw) return; document.getElementById('botLog').innerHTML+='<div>'+raw+'</div>';}
+window.onload=function(){initReal(); render(); setTier('diamond'); document.getElementById('botLog').innerHTML='<div>✅ V18 WHITE REAL - أونلاين</div>';};
 </script>
 </body>
 </html>

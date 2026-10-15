@@ -11,7 +11,7 @@
     "max_images": 30,
     "receipt_file": null,
     "is_paid": true,
-    "auto_confirm_after_minutes": 15,
+    "auto_confirm_after_minutes": 3600,
     "note": "✅ تم التأكيد وتم حذف الوصل"
   }
 ]

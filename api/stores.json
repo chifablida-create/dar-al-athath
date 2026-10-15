@@ -1,13 +1,17 @@
 [
   {
     "id": 1,
-    "name": "محل 1 - الشلف",
-    "saheb_mahal": "اسم صاحب المحل",
-    "phone": "0555xxxxxx",
-    "shop_images": [],
+    "name": "سفة",
+    "saheb_mahal": "كريم",
+    "phone": "0798797662",
+    "shop_images": [
+      "shop_1.jpg"
+    ],
+    "shop_images_base64_count": 1,
     "max_images": 30,
     "receipt_file": null,
-    "is_paid": false,
-    "auto_confirm_after_minutes": 15
+    "is_paid": true,
+    "auto_confirm_after_minutes": 15,
+    "note": "✅ تم التأكيد وتم حذف الوصل"
   }
 ]

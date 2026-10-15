@@ -1,17 +1,16 @@
 [
   {
     "id": 1,
-    "name": "سفة",
+    "name": "شفة البليدة",
     "saheb_mahal": "كريم",
     "phone": "0798797662",
-    "shop_images": [
-      "shop_1.jpg"
-    ],
+    "shop_images": ["shop_1.jpg"],
     "shop_images_base64_count": 1,
     "max_images": 30,
     "receipt_file": null,
     "is_paid": true,
-    "auto_confirm_after_minutes": 3600,
-    "note": "✅ تم التأكيد وتم حذف الوصل"
+    "auto_confirm_after_minutes": 21600,
+    "subscription_days": 15,
+    "note": "✅ شفة البليدة - اشتراك 15 يوم مفعل"
   }
 ]

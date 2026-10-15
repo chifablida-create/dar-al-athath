@@ -1,38 +1,158 @@
-div style="font-size:11px;color:#666;margin-top:6px">البوت يسجل كل المحادثات - يمكنك الحذف متى تشاء - أمر البوت: احذف محادثات الأمس</div>
-</div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دار الأثاث - شفة البليدة</title>
+<style>
+body{font-family:system-ui; background:#fafafa; margin:0; padding:10px}
+.card{background:#fff; border-radius:12px; padding:10px; margin:6px; box-shadow:0 1px 3px #0001}
+.section{display:none} .section.active{display:block}
+.btn{padding:8px 14px; border-radius:8px; border:1px solid #ddd; cursor:pointer}
+.btn.gold{background:gold}
+.input{padding:8px; border-radius:6px; border:1px solid #ccc; width:90%}
+#botLog{height:120px; overflow:auto; background:#111; color:#0f0; padding:8px; font-size:12px; border-radius:8px}
+</style>
+</head>
+<body>
 
-<div class="section" id="sec-settings">
+<div style="font-size:11px;color:#666;margin-top:6px">البوت يسجل كل المحادثات - يمكنك الحذف متى تشاء - أمر البوت: احذف محادثات الأمس</div>
+
+<div class="section active" id="sec-settings">
 <h4>⚙️ إعدادات التطبيق</h4>
 <div style="display:grid;gap:10px">
-<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🎨 الألوان والإضاءة</b><br><label style="font-size:12px">نسبة الأبيض: <input type="range" value="70"> 70% (رائعة + أضواء بيضاء)</label></div>
-<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>💰 بريدي موب RIP</b><br><input class="input" placeholder="أدخل RIP الصحيح هنا - الحقل فارغ بحدود حمراء" style="border-color:red"><button class="btn gold" style="width:auto">حفظ RIP</button></div>
+
+<!-- الألوان -->
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🎨 الألوان والإضاءة</b><br><label style="font-size:12px">نسبة الأبيض: <input type="range" id="whiteRange" value="70" oninput="document.getElementById('whiteVal').textContent=this.value"> <span id="whiteVal">70</span>% (رائعة + أضواء بيضاء)</label></div>
+
+<!-- ✅ RIP المصلح - تقدر تبدلو أي وقت -->
+<div style="border:1px solid #eee;border-radius:12px;padding:12px;background:#fffbe6">
+<b>💰 بريدي موب RIP</b><br>
+<div style="margin-top:8px;display:flex;gap:6px">
+<input id="ripInput" class="input" placeholder="أدخل RIP هنا - 20 رقم" style="flex:1;border-color:#ccc">
+<button class="btn gold" onclick="saveRIP()" style="width:auto">حفظ RIP</button>
+</div>
+<div id="ripStatus" style="font-size:12px;margin-top:6px;color:#666"></div>
+</div>
+
 <div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>📋 السجل</b><br><label><input type="checkbox" checked> تفعيل تسجيل الزوار 👁️</label><br><label><input type="checkbox" checked> تفعيل النجوم ⭐ ومنع التكرار</label><br><label><input type="checkbox" checked> تسجيل محادثات البوت وحذفها متى تشاء</label></div>
-<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🤖 البوت</b><br><label><input type="checkbox" checked> تفعيل البوت العام</label> - زر تشغيل/إيقاف<br><input class="input" placeholder="رسالة ترحيب البوت"></div>
-<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🗺️ الولايات</b><br>58 ولاية كاملة 01-58 <button class="btn" style="width:auto;padding:6px">فحص</button></div>
-<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🔐 كود الإدارة</b><br><input class="input" placeholder="ameurali - مشفر" style="width:60%"><button class="btn" style="width:auto">تغيير</button></div>
+
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🤖 البوت</b><br><label><input type="checkbox" checked> تفعيل البوت العام</label> - زر تشغيل/إيقاف<br>
+<input class="input" id="botCmd" placeholder="اكتب أمر: RIP ، بريدي ، حول محل 5 إلى 20"><br>
+<button class="btn" onclick="execBot()" style="margin-top:6px">تنفيذ</button> <button class="btn" onclick="startVoice()">🎤</button>
+<div id="botLog" style="margin-top:8px"></div>
+<div style="margin-top:6px">
+<button class="btn" onclick="setCmd('RIP')" style="font-size:11px">عرض RIP</button>
+<button class="btn" onclick="setCmd('حول محل 5 إلى 20')" style="font-size:11px">حول محل</button>
+<button class="btn" onclick="setCmd('احذف محادثات الأمس')" style="font-size:11px">حذف المحادثات</button>
+</div>
+</div>
+
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🗺️ الولايات</b><br>58 ولاية كاملة 01-58 <button class="btn" style="width:auto;padding:6px" onclick="log('🗺️ 58 ولاية جاهزة')">فحص</button></div>
+
+<div style="border:1px solid #eee;border-radius:12px;padding:12px"><b>🔐 كود الإدارة</b><br><input class="input" value="ameurali - مشفر" style="width:60%" readonly><button class="btn" style="width:auto" onclick="log('🔐 الكود الحالي: ameurali')">تغيير</button></div>
+
 </div>
 </div>
 
 <div class="section" id="sec-shops"><div style="display:flex;justify-content:space-between"><h4>🔄 ترتيب المحلات في الواجهة</h4><button class="btn gold" onclick="saveOrder()">💾 حفظ</button></div><div id="adminShops" style="margin-top:8px;border:1px solid #eee;border-radius:12px;max-height:340px;overflow:auto"></div></div>
 
-</div></div></div>
+<div id="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px"></div>
 
 <script>
+// --- المحلات ---
 let shops=[];for(let i=1;i<=20;i++){shops.push({id:1000+i,pos:i,name:`محل ${i} - ${['الراقي','الحديث','الجزائري','العصري'][i%4]}`,price:25000+i*1300,wilaya:[16,31,25][i%4],hidden:false,featured:i===1})}
 function render(){let g=document.getElementById('grid');g.innerHTML='';shops.filter(s=>!s.hidden).forEach((s,idx)=>{let d=document.createElement('div');d.className='card';d.innerHTML=`<div class="img">${['🛋️','🪑','🛏️','🍽️'][idx%4]}</div><div class="meta"><div style="font-size:13px;font-weight:700">${s.name}</div><div><span class="price">${s.price} دج</span> <span class="w">${s.wilaya}</span></div><div style="font-size:11px;color:#999">👁️ ${120+idx*3} ⭐ ${(4+Math.random()).toFixed(1)} • مرتبة ${s.pos}</div></div>`;d.onclick=()=>alert('سجل أولاً لرؤية المحل - واجهة التسجيل');g.appendChild(d);});renderAdmin();}
 function renderAdmin(){let a=document.getElementById('adminShops');if(!a) return;a.innerHTML='';shops.forEach((s,i)=>{let r=document.createElement('div');r.style.cssText='display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #f5f5f5;font-size:12px';r.innerHTML=`<span>#${s.id} - ${s.name} - مرتبة ${s.pos} ${s.featured?'⭐':''} ${s.hidden?'مخفي':''}</span><span><button onclick="move(${i},-1)">↥</button><button onclick="move(${i},1)">↧</button><button onclick="toggleHide(${i})">👁️</button></span>`;a.appendChild(r);});}
 function move(i,dir){let ni=i+dir;if(ni<0||ni>=shops.length) return;[shops[i],shops[ni]]=[shops[ni],shops[i]];shops.forEach((s,idx)=>s.pos=idx+1);render();log(`تم تحويل إلى ${ni+1}`);}
 function toggleHide(i){shops[i].hidden=!shops[i].hidden;render();}
-let clicks=0,last=0,tries=0,hashed="YW1ldXJhbGk=";
-document.getElementById('logo').addEventListener('click',()=>{let n=Date.now();if(n-last>3000) clicks=0;clicks++;last=n;if(clicks>=5){clicks=0;document.getElementById('adminLogin').classList.add('show')}});
-function tryAdmin(){let v=document.getElementById('ap').value.trim();if(btoa(v.toLowerCase())===hashed){document.getElementById('adminLogin').classList.remove('show');document.getElementById('adminPanel').classList.add('show');tries=0;log('✅ دخول - مرحبا ameurali - الإدارة الكاملة جاهزة');}else{tries++;document.getElementById('tr').textContent=tries+'/5';document.getElementById('ae').textContent=tries>=2?'غير صحيحة • تلميح: اسمك':'كلمة السر غير صحيحة';}}
-function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
-function switchTab(id){document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('sec-'+id).classList.add('active');event.target.classList.add('active');}
+
+// --- RIP قابل للتغيير أي وقت ---
+function loadRIP(){
+  let saved = localStorage.getItem('myRIP');
+  if(saved){
+    document.getElementById('ripInput').value = saved;
+    document.getElementById('ripStatus').innerHTML = `✅ محفوظ حاليا: <b>${saved}</b> - تقدر تبدلو أي وقت`;
+    document.getElementById('ripStatus').style.color = 'green';
+    document.getElementById('ripInput').style.borderColor = '#0a0';
+  } else {
+    document.getElementById('ripStatus').innerHTML = `ℹ️ لم يتم حفظ RIP بعد - أدخل رقمك واضغط حفظ`;
+    document.getElementById('ripStatus').style.color = '#666';
+  }
+}
+function saveRIP(){
+  let input = document.getElementById('ripInput');
+  let v = input.value.trim().replace(/\s/g,'');
+  let status = document.getElementById('ripStatus');
+  if(v.length < 15){
+    status.innerHTML = `❌ الرقم قصير - لازم على الأقل 15 رقم (20 أفضل)`;
+    status.style.color = 'red';
+    input.style.borderColor = 'red';
+    return;
+  }
+  localStorage.setItem('myRIP', v);
+  status.innerHTML = `✅ تم حفظ RIP: <b>${v}</b> - تقدر تبدلو وقت ما تحب`;
+  status.style.color = 'green';
+  input.style.borderColor = '#0a0';
+  log(`💳 RIP تم حفظه: ${v}`);
+}
+
+// --- البوت ---
 function setCmd(t){document.getElementById('botCmd').value=t}
 function log(t){let l=document.getElementById('botLog');let time=new Date().toLocaleTimeString('ar-DZ');l.innerHTML+=`<div>[${time}] ${t}</div>`;l.scrollTop=l.scrollHeight}
-function execBot(){let cmd=document.getElementById('botCmd').value.trim();let m=cmd.match(/محل\s*(\d+)\s*إلى\s*(\d+)/);if(m){let f=parseInt(m[1]),t=parseInt(m[2]);let idx=shops.findIndex(s=>s.pos===f);if(idx>=0){let it=shops.splice(idx,1)[0];shops.splice(t-1,0,it);shops.forEach((s,i)=>s.pos=i+1);render();log(`✅ تم تحويل محل ${f} → ${t} في الواجهة`);}else log(`❌ محل ${f} غير موجود`);}else if(cmd.includes('ثبت')){let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);if(i>=0){let it=shops.splice(i,1)[0];it.featured=true;shops.unshift(it);shops.forEach((s,i)=>s.pos=i+1);render();log(`⭐ ثبت محل ${n} في الأعلى`);}}else if(cmd.includes('أخف')||cmd.includes('اخف')){let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);if(i>=0){shops[i].hidden=true;render();log(`👁️‍🗨️ أخفيت محل ${n}`);}}else if(cmd.includes('أظهر')||cmd.includes('اظهر')||cmd.includes('كل')){shops.forEach(s=>s.hidden=false);render();log(`👁️ أظهرت كل المحلات`);}else if(cmd.includes('احذف')&&cmd.includes('محادثات')){log(`🗑️ تم حذف محادثات الأمس - السجل`);}else if(cmd.includes('RIP')||cmd.includes('بريدي')){log(`💳 RIP: الحقل فارغ بانتظار الرقم الصحيح - اذهب لإعدادات التطبيق`);}else log(`❌ لم أفهم: ${cmd}`);}
+
+function execBot(){
+  let cmd=document.getElementById('botCmd').value.trim();
+  if(!cmd) return;
+  
+  let m=cmd.match(/محل\s*(\d+)\s*إلى\s*(\d+)/);
+  if(m){
+    let f=parseInt(m[1]),t=parseInt(m[2]);
+    let idx=shops.findIndex(s=>s.pos===f);
+    if(idx>=0){
+      let it=shops.splice(idx,1)[0];shops.splice(t-1,0,it);shops.forEach((s,i)=>s.pos=i+1);render();log(`✅ تم تحويل محل ${f} → ${t} في الواجهة`);
+    } else log(`❌ محل ${f} غير موجود`);
+  }
+  else if(cmd.includes('ثبت')){
+    let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);
+    if(i>=0){let it=shops.splice(i,1)[0];it.featured=true;shops.unshift(it);shops.forEach((s,i)=>s.pos=i+1);render();log(`⭐ ثبت محل ${n} في الأعلى`);}
+  }
+  else if(cmd.includes('أخف')||cmd.includes('اخف')){
+    let n=parseInt((cmd.match(/محل\s*(\d+)/)||[])[1]);let i=shops.findIndex(s=>s.pos===n);
+    if(i>=0){shops[i].hidden=true;render();log(`👁️‍🗨️ أخفيت محل ${n}`);}
+  }
+  else if(cmd.includes('أظهر')||cmd.includes('اظهر')||cmd.includes('كل')){
+    shops.forEach(s=>s.hidden=false);render();log(`👁️ أظهرت كل المحلات`);
+  }
+  else if(cmd.includes('احذف')&&cmd.includes('محادثات')){
+    log(`🗑️ تم حذف محادثات الأمس - السجل`);
+  }
+  // ✅ RIP الجديد - يعرض ويقدر يتبدل
+  else if(cmd.startsWith('RIP ') && cmd.length > 16){
+    let newRIP = cmd.replace('RIP','').trim();
+    localStorage.setItem('myRIP', newRIP);
+    document.getElementById('ripInput').value = newRIP;
+    loadRIP();
+    log(`✅ RIP تغير من البوت إلى: ${newRIP} - تقدر تبدلو أي وقت`);
+  }
+  else if(cmd.includes('RIP')||cmd.includes('بريدي')){
+    let current = localStorage.getItem('myRIP');
+    if(current){
+      log(`💳 RIP الحالي: ${current} | تقدر تغيرو بكتابة: RIP 00xxxxxxxxxx`);
+    } else {
+      log(`💳 RIP: الحقل فارغ - اذهب لإعدادات التطبيق وأدخل رقمك، تقدر تبدلو أي وقت`);
+    }
+  }
+  else log(`❌ لم أفهم: ${cmd}`);
+}
+
 function startVoice(){log('🎤 استماع...');setTimeout(()=>{setCmd('حول محل 5 إلى 20');log('تم التعرف: حول محل 5 إلى 20')},1000)}
 function saveOrder(){log('💾 حفظ ترتيب المحلات - الواجهة تحدثت');}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  loadRIP();
+  render();
+});
 render();
 </script>
 </body>

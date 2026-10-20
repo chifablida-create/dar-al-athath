@@ -1,8 +1,5 @@
 {
-  "cleanUrls": true,
-  "framework": null,
   "rewrites": [
-    { "source": "/assets/(.*)", "dest": "/assets/$1" },
-    { "source": "/(.*)", "dest": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

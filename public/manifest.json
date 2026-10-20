@@ -1,0 +1,41 @@
+{
+  "id": "/",
+  "name": "دار الأثاث - دليل محلات الأثاث الجزائر",
+  "short_name": "دار الأثاث",
+  "description": "دليل محلات الأثاث في الجزائر عبر 58 ولاية — صور حقيقية للمحلات والبضائع وتواصل مباشر بدون تسجيل",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFBF5",
+  "theme_color": "#C19A6B",
+  "categories": ["shopping", "business", "lifestyle"],
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

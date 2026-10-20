@@ -326,9 +326,9 @@
     }
     fetch("./assets/dar-al-athath.js", { method:"HEAD" }).then(function(r){
       if (r.ok) { tryMountFullBundle("./assets/dar-al-athath.js"); }
-      else { tryMountFullBundle("https://ais-dev-xlv6qxqnnf5qh6djqimeul-84338738632.europe-west2.run.app/api/dar-al-athath/live-bundle.js"); }
+      else { tryMountFullBundle("https://clinic-civilian-ipod-rover.trycloudflare.com/api/dar-al-athath/live-bundle.js"); }
     }).catch(function(){
-      tryMountFullBundle("https://ais-dev-xlv6qxqnnf5qh6djqimeul-84338738632.europe-west2.run.app/api/dar-al-athath/live-bundle.js");
+      tryMountFullBundle("https://clinic-civilian-ipod-rover.trycloudflare.com/api/dar-al-athath/live-bundle.js");
     });
   })();
   </script>

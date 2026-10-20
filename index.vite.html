@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>دار الأثاث - دليل محلي</title>
+    <meta name="description" content="دار الأثاث — دليل محلات الأثاث في الجزائر عبر 58 ولاية. صور حقيقية للمحلات والبضائع وتواصل مباشر عبر الشات أو الهاتف أو واتساب بدون تسجيل." />
+    <meta property="og:title" content="دار الأثاث - دليل محلي" />
+    <meta property="og:description" content="دار الأثاث — دليل محلات الأثاث في الجزائر عبر 58 ولاية. صور حقيقية للمحلات والبضائع وتواصل مباشر بدون تسجيل." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./pwa-192x192.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="theme-color" content="#C19A6B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="دار الأثاث" />
+  </head>
+  <body class="bg-[#FFFBF5] text-[#2B2117] antialiased selection:bg-[#C19A6B] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch(function () {});
+        });
+      }
+      setInterval(function () {
+        try {
+          fetch('/api/ping', { cache: 'no-store' }).catch(function () {});
+        } catch (e) {}
+      }, 45000);
+    </script>
+  </body>
+</html>
